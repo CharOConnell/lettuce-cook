@@ -1,10 +1,41 @@
 {% extends 'base.html' %} {% block content %}
-    
-    
-    <h1>Inside!</h1>
-    {% for recipe in recipes %}
-    {{recipe.recipe_name}}
+
+<h1>Inside!</h1>
+
+<div id="accordion">
+  <div class="card card-accordion">
+    <div class="card-header" id="recipe">
+        <div class="row">
+            <div class="col-10 offset-1 col-md-3 offset-md-0">
+                <img src="{{url_for('static', filename='pictures/Guacamole_avocados.jpg')}}" alt="Guacamole" class="img-thumbnail img-fluid">
+            </div>
+        </div>
+        <h5 class="mb-0">
+            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Show More +
+            </button>
+        </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="recipe" data-parent="#accordion">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+        skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+        single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+        proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+        beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+        haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+
+{% for recipe in recipes %} 
+    {{recipe.recipe_name}} 
     {{recipe.recipe_description}}
-    {{recipe.cuisine_type}}
-    {% endfor %}
+    {{recipe.cuisine_type}} 
+{% endfor %}
+
 {% endblock %}
