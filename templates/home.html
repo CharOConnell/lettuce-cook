@@ -1,41 +1,66 @@
 {% extends 'base.html' %} {% block content %}
-
-<h1>Inside!</h1>
-
 <div id="accordion">
+  
+  <!-- THIS IS THE CHUNK WE CAN USE FOR THE LOOP - N.B. the id for recipe (need it for the labelled by, needs to change iteratively also) -->
+  <!-- {% for recipe in recipes %} -->
   <div class="card card-accordion">
-    <div class="card-header" id="recipe">
+    <div class="card-header" id="recipe"> <!-- Maybe use the {{recipe._id}} -->
         <div class="row">
-            <div class="col-10 offset-1 col-md-3 offset-md-0">
-                <img src="{{url_for('static', filename='pictures/Guacamole_avocados.jpg')}}" alt="Guacamole" class="img-thumbnail img-fluid">
+            <div class="col col-md-3">
+                <img src="{{url_for('static', filename='pictures/Guacamole_avocados.jpg')}}" class="img-thumbnail img-fluid"> <!-- {{recipe.photo}} -->
+            </div>
+            <div class="w-100 d-lg-none"></div>
+            <div class="col-10-offset-1 col-md-7 offset-md-0">
+                <h3 class="title"> Guacamole</h3> <!-- {{recipe.recipe_name}} -->
+                
+                <p class="description">An easy way to create this classic dip. It's quick, easy and tastes divine!</p> <!-- {{recipe.recipe_description}} -->
+                <ul class="info-tab">
+                    <li>Prep Time: </li> <!-- {{recipe.prep_time}} -->
+                    <li>Cooking Time: </li> <!-- {{recipe.cooking_time}} -->
+                    <li>Difficulty: </li> <!-- {{recipe.difficulty_level}} -->
+                    <li>Serves: </li> <!-- {{recipe.serving_size}} -->
+                    <li>Cuisine Style: </li> <!-- {{recipe.cuisine_type}} -->
+                </ul>
+            </div>
+            <div class="w-100 d-lg-none"></div>
+            <div class="d-flex col-10 offset-1 col-md-2 offset-md-0 justify-content-around justify-content-md-end flex-md-wrap align-self-md-end">
+                <button class="btn edit-btn"> Edit Recipe </button>
+                <button class="btn" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Show More +                
+                </button> <!-- add a JS file so "onclick" it changes the HTML to "Show Less -" and back to "Show More +" respectively -->
             </div>
         </div>
-        <h5 class="mb-0">
-            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Show More +
-            </button>
-        </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="recipe" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
-        skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-        Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-        single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
-        helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-        proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-        beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-        haven't heard of them accusamus labore sustainable VHS.
+        <div class="card-body">
+            <div class="row">
+                <div class="col col-lg-5" id="ingredients">
+                    <h4 class="title"> Ingredients: </h4>
+                    <p>
+                    <!-- {{recipe.ingredients}} -->
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+                    terry richardson ad squid. 3 wolf moon officia aute, non cupidatat
+                    skateboard dolor brunch.</p>
+                </div>
+                <div class="w-100 d-lg-none"></div>
+                <div class="col col-lg-7" id="method">
+                    <h4 class="title"> Method: </h4>
+                    <p>
+                    <!-- {{recipe.method}} -->
+                    Food truck quinoa nesciunt laborum eiusmod.
+                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+                    single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                    helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                    proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                    beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+                    haven't heard of them accusamus labore sustainable VHS.</p>
+                </div>
+            </div>         
       </div>
     </div>
   </div>
 </div>
-
-{% for recipe in recipes %} 
-    {{recipe.recipe_name}} 
-    {{recipe.recipe_description}}
-    {{recipe.cuisine_type}} 
-{% endfor %}
+<!-- {% endfor %} -->
+<!-- THIS IS THE CHUNK WE CAN USE FOR THE LOOP -->
 
 {% endblock %}
