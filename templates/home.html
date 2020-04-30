@@ -1,13 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <div id="accordion">
   
-  <!-- THIS IS THE CHUNK WE CAN USE FOR THE LOOP - N.B. the id for recipe (need it for the labelled by, needs to change iteratively also) -->
   {% for recipe in recipes %}
   <div class="card card-accordion">
-    <div class="card-header" id="recipe"> <!-- Maybe use the {{recipe._id}} -->
+    <div class="card-header" id="{{recipe._id}}"> 
         <div class="row">
             <div class="col col-md-3">
-                <img src="{{url_for('static', filename='pictures/Guacamole_avocados.jpg')}}" class="img-thumbnail img-fluid"> <!-- {{recipe.photo}} -->
+                <img src="{{url_for('static', filename='pictures/')}}{{recipe.photo}}" alt="{{recipe.photo}}" class="img-thumbnail img-fluid"> <!-- {{recipe.photo}} -->
             </div>
             <div class="w-100 d-lg-none"></div>
             <div class="col-10-offset-1 col-md-7 offset-md-0">
@@ -25,13 +24,13 @@
             <div class="w-100 d-lg-none"></div>
             <div class="d-flex col-10 offset-1 col-md-2 offset-md-0 justify-content-around justify-content-md-end flex-md-wrap align-self-md-end">
                 <button class="btn edit-btn"> Edit Recipe </button>
-                <button class="btn" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="btn" data-toggle="collapse" data-target="#collapse{{recipe._id}}" aria-expanded="false" aria-controls="collapse{{recipe._id}}">
                 Show More +                
                 </button> <!-- add a JS file so "onclick" it changes the HTML to "Show Less -" and back to "Show More +" respectively -->
             </div>
         </div>
     </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="recipe" data-parent="#accordion">
+    <div id="collapse{{recipe._id}}" class="collapse" aria-labelledby="{{recipe._id}}" data-parent="#accordion">
         <div class="card-body">
             <div class="row">
                 <div class="col col-lg-5" id="ingredients">
@@ -44,7 +43,7 @@
                 <div class="col col-lg-7" id="method">
                     <h4 class="title"> Method: </h4>
                     <p>
-                    {{recipe.method}} 
+                    {{recipe.method}} <!-- NEED TO SORT THE STYLING -->
                     </p>
                 </div>
             </div>         
@@ -52,7 +51,7 @@
     </div>
   </div>
 </div>
+
 {% endfor %}
-<!-- THIS IS THE CHUNK WE CAN USE FOR THE LOOP -->
 
 {% endblock %}
