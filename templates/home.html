@@ -24,9 +24,8 @@
             <div class="w-100 d-lg-none"></div>
             <div class="d-flex col-10 offset-1 col-md-2 offset-md-0 justify-content-around justify-content-md-end flex-md-wrap align-self-md-end">
                 <button class="btn edit-btn"> Edit Recipe </button>
-                <button class="btn" data-toggle="collapse" data-target="#collapse{{recipe._id}}" aria-expanded="false" aria-controls="collapse{{recipe._id}}">
-                Show More +                
-                </button> <!-- add a JS file so "onclick" it changes the HTML to "Show Less -" and back to "Show More +" respectively -->
+                <button class="btn" data-toggle="collapse" data-target="#collapse{{recipe._id}}" aria-expanded="true" aria-controls="collapse{{recipe._id}}"
+                id="btn{{recipe._id}}" onclick="buttonUpdate(id)">Show More +</button>
             </div>
         </div>
     </div>
@@ -43,7 +42,7 @@
                 <div class="col col-lg-7" id="method">
                     <h4 class="title"> Method: </h4>
                     <p>
-                    {{recipe.method}} <!-- NEED TO SORT THE STYLING -->
+                    {{recipe.method}} <!-- NEED TO SORT THE STYLING - through JS? -->
                     </p>
                 </div>
             </div>         
