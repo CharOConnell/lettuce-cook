@@ -8,7 +8,7 @@
             <div class="col col-md-3">
                 <img src="{{url_for('static', filename='pictures/')}}{{recipe.photo}}" alt="{{recipe.photo}}" class="img-thumbnail img-fluid"> <!-- {{recipe.photo}} -->
             </div>
-            <div class="w-100 d-lg-none"></div>
+            <div class="w-100 d-md-none"></div>
             <div class="col-10-offset-1 col-md-7 offset-md-0">
                 <h3 class="title"> {{recipe.recipe_name}}</h3> 
                 
@@ -21,9 +21,9 @@
                     <li>Cuisine Style: {{recipe.cuisine_type}}</li>
                 </ul>
             </div>
-            <div class="w-100 d-lg-none"></div>
-            <div class="d-flex col-10 offset-1 col-md-2 offset-md-0 justify-content-around justify-content-md-end flex-md-wrap align-self-md-end">
-                <button class="btn edit-btn"> Edit Recipe </button>
+            <div class="w-100 d-md-none"></div>
+            <div class="d-flex col col-md-2 justify-content-around justify-content-md-end flex-md-wrap align-self-md-end">
+                <button class="btn"> Edit Recipe </button>
                 <button class="btn" data-toggle="collapse" data-target="#collapse{{recipe._id}}" aria-expanded="true" aria-controls="collapse{{recipe._id}}"
                 id="btn{{recipe._id}}" onclick="buttonUpdate(id)">Show More +</button>
             </div>
