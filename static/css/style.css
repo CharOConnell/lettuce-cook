@@ -157,6 +157,11 @@ button.navbar-toggler {
     padding: 4px;
 }
 
+.img-thumbnail {
+    display: block;
+    max-height: 280px;
+}
+
 /* RECIPE FORM */
 .heading-form {
     font-weight: bold;
@@ -178,6 +183,10 @@ button.navbar-toggler {
 
 .input-field {
     padding: 0;
+}
+
+input {
+    word-wrap: break-word;
 }
 
 .dropdown {

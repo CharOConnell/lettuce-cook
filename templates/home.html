@@ -7,8 +7,8 @@
   <div class="card card-accordion">
     <div class="card-header" id="{{recipe._id}}"> 
         <div class="row">
-            <div class="col col-md-3">
-                <img src="{{url_for('static', filename='pictures/')}}{{recipe.photo}}" alt="{{recipe.photo}}" class="img-thumbnail img-fluid"> <!-- {{recipe.photo}} -->
+            <div class="d-flex col col-md-3 justify-content-center">
+                <img src="{{recipe.photo}}" alt="{{recipe.recipe_name}}" class="img-thumbnail img-fluid"> 
             </div>
             <div class="w-100 d-md-none"></div>
             <div class="col-10-offset-1 col-md-7 offset-md-0">
@@ -19,7 +19,7 @@
                     <li>Prep Time: {{recipe.preparation_time}}</li>
                     <li>Cooking Time: {{recipe.cooking_time}} </li> 
                     <li>Difficulty: {{recipe.difficulty_level}} </li> 
-                    <li>Serves:  {{recipe.serving_size}}</li>
+                    <li>Serves: {{recipe.serving_size}}</li>
                     <li>Cuisine Style: {{recipe.cuisine_type}}</li>
                 </ul>
             </div>

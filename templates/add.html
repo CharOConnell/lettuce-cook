@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-
+<div class="container-fluid">
 <div class="row">
     <div class="col">
         <h3 class="text-centre heading"><strong> Add A Recipe! </strong></h3>
@@ -38,7 +38,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="text" name="photo" id="photo" placeholder="Upload your file" required class="entry-data"/>
+                <input type="url" name="photo" id="photo" placeholder="Add link to a photo of the recipe from the web" required class="entry-data"/>
             </div>
         </div>
 
@@ -123,7 +123,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="text" name="serving_size" id="serving" placeholder="Input how many people this serves / quantity it makes" required class="entry-data" /> 
+                <input type="number" name="serving_size" id="serving" placeholder="Input how many people this serves / quantity it makes" required class="entry-data" /> 
             </div>
         </div>
 
@@ -134,7 +134,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="text" name="ingredients" id="ingredients" placeholder="1 large whole avocado, ..." required class="entry-data"/>
+                <textarea type="text" name="ingredients" id="ingredients" placeholder="1 large whole avocado, ..." required class="entry-data"></textarea>
             </div>
         </div>
 
@@ -145,7 +145,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="text" name="method" id="method" placeholder="1. Please separate your method steps with numbers. 2. Like this! ..." required class="entry-data"/>
+                <textarea type="text" name="method" id="method" placeholder="1. Please separate your method steps with numbers. 2. Like this! ..." required class="entry-data"></textarea>
             </div>
         </div>
 
@@ -159,6 +159,6 @@
         </div>
 	</form>
 </div>
-
+</div>
 
 {% endblock %}
