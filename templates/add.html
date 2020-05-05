@@ -8,7 +8,7 @@
 <hr class="horrule">
 
 <div class="row">
-	<form action="{{ url_for('add_task') }}" method="POST" class="col s12">
+	<form action="{{ url_for('insert_recipe') }}" method="POST" class="col">
 		<div class="row">
             <div class="col heading-form">
                 Recipe Name: 
@@ -27,7 +27,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="text" name="description" id="description" placeholder="A fun take on the iconic dish." required class="entry-data"/>
+                <input type="text" name="recipe_description" id="description" placeholder="A fun take on the iconic dish." required class="entry-data"/>
             </div>
         </div>
 
@@ -49,14 +49,16 @@
 		</div>
         <div class="row entry-box">
             <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Pick the difficulty level
+                <div class="input-field-dropdown dropdown-toggle" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                  Pick the difficulty level
                 </div>
-                <select id="difficulty" name="difficulty" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple>
+                
+                <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple>
                     {% for diffi in difficulty %}
                     <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
                     {% endfor %}
                 </select>
+                
             </div>
         </div>
 
@@ -70,7 +72,7 @@
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCui" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                     Pick the cuisine style
                 </div>
-                <select id="cuisine" name="cuisine" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple>
+                <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple>
                     {% for style in cuisine %}
                     <option class="dropdown-item" value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
                     {% endfor %}
@@ -88,7 +90,7 @@
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonPrep" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                     Choose your preparation time
                 </div>
-                <select id="preparation" name="preparation" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" multiple>
+                <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" multiple>
                     {% for time_prep in prep %}
                     <option class="dropdown-item" value="{{time_prep.prep_time}}">{{time_prep.prep_time}}</option>
                     {% endfor %}
@@ -106,7 +108,7 @@
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCook" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                     Choose your cooking time
                 </div>
-                <select id="cooking" name="cooking" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" multiple>
+                <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" multiple>
                     {% for cook_time in cook %}
                     <option class="dropdown-item" value="{{cook_time.cooking_time}}">{{cook_time.cooking_time}}</option>
                     {% endfor %}
@@ -121,7 +123,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="text" name="serving" id="serving" placeholder="Input how many people this serves / quantity it makes" required class="entry-data" /> 
+                <input type="text" name="serving_size" id="serving" placeholder="Input how many people this serves / quantity it makes" required class="entry-data" /> 
             </div>
         </div>
 
@@ -147,8 +149,14 @@
             </div>
         </div>
 
-		<button class="btn" type="submit" name="action"> Add Recipe </button>
-        <button class="btn"> Cancel </button>
+        <div class="row justify-content-around">
+            <div class="d-flex col-5 offset-1 justify-content-end align-self-center">
+                <button class="btn" type="submit"> Add Recipe </button>
+            </div>
+            <div class="d-flex col-5 offset-1 align-self-center">
+                <button class="btn"> Cancel </button>
+            </div>
+        </div>
 	</form>
 </div>
 

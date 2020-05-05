@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% block content %}
-<div id="accordion">
+<div class="container-fluid no-gutters">
+
   
   {% for recipe in recipes %}
+  <div id="accordion">
   <div class="card card-accordion">
     <div class="card-header" id="{{recipe._id}}"> 
         <div class="row">
@@ -52,5 +54,5 @@
 </div>
 
 {% endfor %}
-
+</div>
 {% endblock %}

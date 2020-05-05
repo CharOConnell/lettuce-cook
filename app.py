@@ -1,6 +1,5 @@
 import os
-from flask import Flask, render_template, url_for, redirect
-# redirect, url_for, request
+from flask import Flask, render_template, url_for, redirect, request
 from flask_pymongo import PyMongo
 # from bson.objectid import ObjectId
 
@@ -18,7 +17,7 @@ def home():
 
 
 @app.route('/add_recipe')
-def add_task():
+def add_recipe():
     the_recipes = mongo.db.recipes.find()
     the_difficulty = mongo.db.difficulty.find()
     the_cuisine = mongo.db.cuisine_style.find()
@@ -27,13 +26,11 @@ def add_task():
     return render_template('add.html', recipes=the_recipes, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
 
 
-"""
 @app.route('/insert_recipe', methods=['POST'])
-def insert_task():
+def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
-    return redirect(url_for('/'))
-"""
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

@@ -95,6 +95,13 @@ Heroku is the deployment page.
 Testing the contact form:
 - Attempt to submit an empty form to check an error message for the designated fields appears
 
+Testing the add functionality:
+- Check that you can add to the database and it talks
+- Check that the naming conventions are the same as the database or it will not show properly
+- Send the correct data to the database
+- Check you can receive the data from the database after adding
+
+
 Checking using Validator:
 - Using the online validator [here](validator.w3.org), the html validity was checked
 - CSS was checked uing the online validator [here](http://www.css-validator.org/)
