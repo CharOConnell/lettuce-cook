@@ -33,6 +33,36 @@ def insert_recipe():
     return redirect(url_for('home'))
 
 
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    the_difficulty = mongo.db.difficulty.find()
+    the_cuisine = mongo.db.cuisine_style.find()
+    preparation = mongo.db.preparation.find()
+    cooking = mongo.db.cooking.find()
+    return render_template('edit.html', recipe=the_recipe, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
+
+
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+def update_recipe(recipe_id):
+    recipes = mongo.db.recipes
+    recipes.update({'_id': ObjectId(recipe_id)},
+     {
+        'recipe_name': request.form.get('recipe_name'),
+        'recipe_description': request.form.get('recipe_description'),
+        'photo': request.form.get('photo'),
+        'difficulty_level': request.form.get('difficulty_level'),
+        'cuisine_type': request.form.get('cuisine_type'),
+        'preparation_time': request.form.get('preparation_time'),
+        'cooking_time': request.form.get('cooking_time'),
+        'serving_size': request.form.get('serving_size'),
+        'ingredients': request.form.get('ingredients'),
+        'method': request.form.get('method')
+    })
+    return redirect(url_for('home'))
+
+
+
 if __name__ == '__main__':
     app.run(host=os.getenv('IP', "0.0.0.0"), port=int(
         os.getenv('PORT', "5000")), debug=True)
