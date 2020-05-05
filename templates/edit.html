@@ -2,13 +2,13 @@
 <div class="container-fluid">
 <div class="row">
     <div class="col">
-        <h3 class="text-centre heading"><strong> Add A Recipe! </strong></h3>
+        <h3 class="text-centre heading"><strong> Edit A Recipe! </strong></h3>
     </div>
 </div>
 <hr class="horrule">
 
 <div class="row">
-	<form action="{{ url_for('insert_recipe') }}" method="POST" class="col">
+	<form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" class="col">
 		<div class="row">
             <div class="col heading-form">
                 Recipe Name: 
@@ -16,7 +16,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="text" name="recipe_name" id="recipe_name" placeholder="Guacamole" required class="entry-data"/>
+                <input type="text" name="recipe_name" id="recipe_name" placeholder="Guacamole" required class="entry-data" value="{{recipe.recipe_name}}"/>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="text" name="recipe_description" id="description" placeholder="A fun take on the iconic dish." required class="entry-data"/>
+                <input type="text" name="recipe_description" id="description" placeholder="A fun take on the iconic dish." required class="entry-data" value="{{recipe.recipe_description}}"/>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="url" name="photo" id="photo" placeholder="Add link to a photo of the recipe from the web" required class="entry-data"/>
+                <input type="url" name="photo" id="photo" placeholder="Add link to a photo of the recipe from the web" required class="entry-data" value="{{recipe.photo}}"/>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
         <div class="row entry-box">
             <div class="col dropdown">
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                  Pick the difficulty level
+                  {{recipe.difficulty_level}}
                 </div>
                 
                 <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple>
@@ -70,7 +70,7 @@
         <div class="row entry-box">
             <div class="col dropdown">
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCui" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Pick the cuisine style
+                   {{recipe.cuisine_type}}
                 </div>
                 <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple>
                     {% for style in cuisine %}
@@ -88,7 +88,7 @@
         <div class="row entry-box">
             <div class="col dropdown">
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonPrep" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Choose your preparation time
+                    {{recipe.preparation_time}}
                 </div>
                 <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" multiple>
                     {% for time_prep in prep %}
@@ -106,7 +106,7 @@
         <div class="row entry-box">
             <div class="col dropdown">
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCook" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Choose your cooking time
+                    {{recipe.cooking_time}}
                 </div>
                 <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" multiple>
                     {% for cook_time in cook %}
@@ -123,7 +123,7 @@
 		</div>
         <div class="row entry-box">
             <div class="input-field col">
-                <input type="number" name="serving_size" id="serving" placeholder="Input how many people this serves / quantity it makes" required class="entry-data" /> 
+                <input type="number" name="serving_size" id="serving" placeholder="Input how many people this serves / quantity it makes" required class="entry-data" value="{{recipe.serving_size}}"/> 
             </div>
         </div>
 
@@ -137,7 +137,7 @@
                 <textarea name="ingredients" id="ingredients" 
 placeholder="1 large whole avocado, 
 1 large ripe tomato,
-..." required class="entry-data"></textarea>
+..." required class="entry-data">{{recipe.ingredients}}</textarea>
             </div>
         </div>
 
@@ -150,13 +150,13 @@ placeholder="1 large whole avocado,
             <div class="input-field col">
                 <textarea name="method" id="method" 
 placeholder="1. Please separate your method steps with numbers. 
-2. Like this ..." required class="entry-data"></textarea>
+2. Like this ..." required class="entry-data">{{recipe.method}}</textarea>
             </div>
         </div>
 
         <div class="row justify-content-around">
             <div class="d-flex col-5 offset-1 justify-content-end align-self-center">
-                <button class="btn" type="submit"> Add Recipe </button>
+                <button class="btn" type="submit"> Edit Recipe </button>
             </div>
             <div class="d-flex col-5 offset-1 align-self-center">
                 <a class="btn" href="{{url_for('home')}}" > Cancel </a>
