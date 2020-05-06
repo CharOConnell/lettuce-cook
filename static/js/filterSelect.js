@@ -1,4 +1,4 @@
-function filterSelect(dropdownMenu) {
+function filterSelect() {
     $(".dropdown-menu option").click(function(){
         let idtag = $(this).parents(".dropdown").find(".input-field-dropdown").attr("id");
         let newidtag = $("#"+idtag).siblings(".dropdown-menu").attr("id");
@@ -74,6 +74,8 @@ function filterSelect(dropdownMenu) {
                 $("#"+newidtag).html(`<div class="input-field col">
                     <input type="text" name="serving_size" id="serving_size" placeholder="Serving size to search for" required class="entry-data"/>
                 </div>`);
+            } else {
+                $("#"+newidtag).html(``);
             }
             
 

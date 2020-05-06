@@ -1,57 +1,61 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container-fluid">
-<div class="row">
-    <div class="col">
-        <h3 class="text-centre heading"><strong> Search For A Recipe! </strong></h3>
+    <div class="row">
+        <div class="col">
+            <h3 class="text-centre heading"><strong> Search For A Recipe! </strong></h3>
+        </div>
     </div>
-</div>
-<hr class="horrule">
+    <hr class="horrule">
+recipes
+{{recipes}}
+    <div class="row">
+        <form action="{{ url_for('insert_recipe') }}" method="POST" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED -->
+            <div class="container-fluid searching" id="one">
+                <div class="row entry-box">
+                    <div class="col dropdown">
+                        <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonFilt" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        Pick the category to search in
+                        </div>
 
-<div class="row">
-	<form action="{{ url_for('insert_recipe') }}" method="POST" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED -->
-		<div class="container-fluid searching" id="one">
-            <div class="row entry-box">
-                <div class="col dropdown">
-                    <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonFilt" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Pick the category to search in
+                        <select name="filterOne" id="filterOne" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt" multiple onchange="filterSelect(this)">
+                            <option value="recipe_name" class="dropdown-item">Recipe Name</option>
+                            <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
+                            <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
+                            <option value="prep" class="dropdown-item">Preparation Time</option>
+                            <option value="cook" class="dropdown-item">Cooking Time</option>
+                            <option value="serving_size" class="dropdown-item">Serving Size</option>
+                        </select>
                     </div>
+                </div>
+                
 
-                    <select name="filterOne" id="filterOne" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt" multiple onchange="filterSelect(this)">
-                        <option value="recipe_name" class="dropdown-item">Recipe Name</option>
-                        <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
-                        <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
-                        <option value="prep" class="dropdown-item">Preparation Time</option>
-                        <option value="cook" class="dropdown-item">Cooking Time</option>
-                        <option value="serving_size" class="dropdown-item">Serving Size</option>
-                    </select>
+                <div class="row entry-box input" id="inputOne">
+                    
                 </div>
             </div>
             
-
-            <div class="row entry-box input" id="inputOne">
-                
-            </div>
-        </div>
-        
-        <div class="searching container-fluid" id="two"></div>
-        <div class="searching container-fluid" id="three"></div>
-        <div class="searching container-fluid" id="four"></div>
-        <div class="searching container-fluid" id="five"></div>
-        <div class="searching container-fluid" id="six"></div>
+            <div class="searching container-fluid" id="two"></div>
+            <div class="searching container-fluid" id="three"></div>
+            <div class="searching container-fluid" id="four"></div>
+            <div class="searching container-fluid" id="five"></div>
+            <div class="searching container-fluid" id="six"></div>
 
 
-        <div class="row justify-content-around">
-            <div class="d-flex col justify-content-center align-self-center">
-                <button class="btn" type="submit"> Add Filter </button>
+            <div class="searching container-fluid" id="results"></div>
+
+
+            <div class="row justify-content-around">
+                <div class="d-flex col justify-content-center align-self-center">
+                    <button class="btn" onclick="addFilter()"> Add Filter </button>
+                </div>
             </div>
-        </div>
-        <div class="row justify-content-around">
-            <div class="d-flex col justify-content-center align-self-center">
-                <a class="btn" href="{{url_for('home')}}" > Search Recipes </a> <!-- CHANGE TO SEARCH LINK -->
+            <div class="row justify-content-around">
+                <div class="d-flex col justify-content-center align-self-center">
+                    <a class="btn" href="{{url_for('home')}}" > Search Recipes </a> <!-- CHANGE TO SEARCH LINK -->
+                </div>
             </div>
-        </div>
-	</form>
-</div>
+        </form>
+    </div>
 </div>
 
 {% endblock %}
