@@ -62,7 +62,19 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('home'))
 
+@app.route('/search_recipe')
+def search_recipe():
+    the_recipes = mongo.db.recipes.find()
+    the_difficulty = mongo.db.difficulty.find()
+    the_cuisine = mongo.db.cuisine_style.find()
+    preparation = mongo.db.preparation.find()
+    cooking = mongo.db.cooking.find()
+    return render_template('search.html', recipes=the_recipes, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
+
+
 
 if __name__ == '__main__':
     app.run(host=os.getenv('IP', "0.0.0.0"), port=int(
-        os.getenv('PORT', "5000")), debug=True)
+        os.getenv('PORT', "5000")), debug=True) 
+
+# REMEMBER TO GET RID OF THE DEBUG BEFORE PUBLISHING!
