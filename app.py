@@ -62,6 +62,7 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('home'))
 
+
 @app.route('/search_recipe')
 def search_recipe():
     the_recipes = mongo.db.recipes.find()

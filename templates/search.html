@@ -6,18 +6,17 @@
         </div>
     </div>
     <hr class="horrule">
-recipes
-{{recipes}}
+
     <div class="row">
         <form action="{{ url_for('insert_recipe') }}" method="POST" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED -->
             <div class="container-fluid searching" id="one">
                 <div class="row entry-box">
                     <div class="col dropdown">
-                        <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonFilt" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonFilt1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                         Pick the category to search in
                         </div>
 
-                        <select name="filterOne" id="filterOne" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt" multiple onchange="filterSelect(this)">
+                        <select name="filter1" id="filter1" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt1" required multiple onchange="filterSelect(this)">
                             <option value="recipe_name" class="dropdown-item">Recipe Name</option>
                             <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
                             <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
@@ -28,30 +27,27 @@ recipes
                     </div>
                 </div>
                 
-
-                <div class="row entry-box input" id="inputOne">
-                    
-                </div>
+                <div class="row input" id="input1"></div>
             </div>
             
-            <div class="searching container-fluid" id="two"></div>
-            <div class="searching container-fluid" id="three"></div>
-            <div class="searching container-fluid" id="four"></div>
-            <div class="searching container-fluid" id="five"></div>
-            <div class="searching container-fluid" id="six"></div>
+            <div class="searching container-fluid" id="2"></div>
+            <div class="searching container-fluid" id="3"></div>
+            <div class="searching container-fluid" id="4"></div>
+            <div class="searching container-fluid" id="5"></div>
+            <div class="searching container-fluid" id="6"></div>
 
 
             <div class="searching container-fluid" id="results"></div>
 
 
-            <div class="row justify-content-around">
+            <div class="row justify-content-around" id="addfilterbtn">
                 <div class="d-flex col justify-content-center align-self-center">
-                    <button class="btn" onclick="addFilter()"> Add Filter </button>
+                    <button class="btn" type="button" onclick="addFilter()"> Add Filter </button>
                 </div>
             </div>
             <div class="row justify-content-around">
                 <div class="d-flex col justify-content-center align-self-center">
-                    <a class="btn" href="{{url_for('home')}}" > Search Recipes </a> <!-- CHANGE TO SEARCH LINK -->
+                    <button class="btn" type="button"> Search Recipes </button> <!-- CHANGE TO SEARCH LINK -->
                 </div>
             </div>
         </form>
