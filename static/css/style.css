@@ -213,6 +213,11 @@ button.navbar-toggler {
     height: 20em;
 }
 
+/* SEARCH */
+.searching {
+    padding: 0;
+}
+
 
 /* FOOTER */
 .footer {

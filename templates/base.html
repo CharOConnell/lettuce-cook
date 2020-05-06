@@ -51,13 +51,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
     <script src="static/js/buttonUpdate.js"></script>
-    <script>
-        $(".dropdown-menu option").click(function(){
-        var idtag = $(this).parents(".dropdown").find('.input-field-dropdown').attr("id");
-        var newidtag = $("#"+idtag).siblings(".dropdown-menu").attr("id");
-        var newinput = $("#"+newidtag+" option:selected").html();
-        $("#"+idtag).html(newinput);
-        });
-    </script>
+    <script src="static/js/filterSelect.js"></script>
 </body>
 </html>
