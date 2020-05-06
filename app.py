@@ -15,7 +15,6 @@ mongo = PyMongo(app)
 def home():
     return render_template('home.html', recipes=mongo.db.recipes.find())
 
-
 @app.route('/add_recipe')
 def add_recipe():
     the_recipes = mongo.db.recipes.find()
@@ -25,13 +24,11 @@ def add_recipe():
     cooking = mongo.db.cooking.find()
     return render_template('add.html', recipes=the_recipes, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
 
-
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('home'))
-
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
@@ -41,7 +38,6 @@ def edit_recipe(recipe_id):
     preparation = mongo.db.preparation.find()
     cooking = mongo.db.cooking.find()
     return render_template('edit.html', recipe=the_recipe, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
-
 
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
@@ -61,6 +57,10 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('home'))
 
+@app.route('/delete_recipe/<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
+    return redirect(url_for('home'))
 
 
 if __name__ == '__main__':

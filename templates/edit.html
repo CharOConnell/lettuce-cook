@@ -162,7 +162,7 @@ placeholder="1. Please separate your method steps with numbers.
                 <a class="btn" href="{{url_for('home')}}" > Cancel </a>
             </div>
             <div class="d-flex col-4 justify-content-center justify-content-md-start align-self-center">
-                <button class="btn"> Delete Recipe </button> 
+                <a class="btn" href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"> Delete Recipe </a> 
             </div>
         </div>
 	</form>
