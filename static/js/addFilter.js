@@ -1,5 +1,20 @@
 function addFilter() {
     for (i=2; i<7; i++) {
+        if (i===2) {
+            // add the remove / refresh filter buttons
+            $("#addfilterbtn").removeClass("col justify-content-center").addClass("col-5 justify-content-end")
+            $("#removefilterbtn").html(`<button class="btn" type="button" onclick="removeFilter()"> Remove Filter </button>`)
+                .addClass("d-flex col-2 justify-content-center align-self-center")
+            $("#refreshfilterbtn").html(`<button class="btn" type="button"> Refresh Filters </button>`)
+                .addClass("d-flex col-5 justify-content-start align-self-center")
+        }
+        if (i===6) {
+            // we've reached our total number of options, so remove the add filter button
+            $("#addfilterbtn").html(``).removeClass("col-5");
+            $("#removefilterbtn").removeClass("col-2 justify-content-center").addClass("col-6 justify-content-end");
+            $("#refreshfilterbtn").removeClass("col-5").addClass("col-6");
+        
+        }
         if ($("#"+i).html() === "") {
             // if there is no filter, add the filter option boxes
             $("#"+i).html(`<div class="row entry-box">
@@ -19,14 +34,9 @@ function addFilter() {
                         </div>
                     </div>
                     
-                    <div class="row entry-box input" id="input2"></div>`)
-        if (i===6) {
-            // we've reached our total number of options, so remove the add filter button
-            $("#addfilterbtn").html(``);
-        }
-        // break so it produces one extra filter at a time, not 6 at once
-        break
-        } 
+                    <div class="row input" id="input2"></div>`)
+            // break so it produces one extra filter at a time, not 6 at once
+            break
+        }        
     }
-    // console.log($("#2").html())
 }

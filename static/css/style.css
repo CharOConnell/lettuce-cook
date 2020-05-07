@@ -66,7 +66,7 @@ body {
 }
 
 #homepage {
-    min-height: 90vh;
+    min-height: 88vh;
 }
 
 /* NAV BAR */
@@ -219,6 +219,9 @@ button.navbar-toggler {
     margin: 2em 0em;
 }
 
+.search-page {
+    min-height: 88vh;
+}
 
 /* FOOTER */
 .footer {
