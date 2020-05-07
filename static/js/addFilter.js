@@ -20,6 +20,7 @@ function addFilter() {
             let nameval = "filter"+i;
             let id1val = "dropdownMenuButtonFilt"+i;
             let id2val = "filter"+i;
+            let inputval = "input"+i;
             // if there is no filter, add the filter option boxes
             $("#"+i).html(`<div class="row entry-box">
                         <div class="col dropdown">
@@ -38,7 +39,7 @@ function addFilter() {
                         </div>
                     </div>
                     
-                    <div class="row input" id="input2"></div>`);
+                    <div class="row input" id=${inputval}></div>`);
             // break so it produces one extra filter at a time, not 6 at once
             break
         }        
