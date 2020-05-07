@@ -23,6 +23,12 @@ function addEntryBox() {
     let category = $("#" + idtag).html();
     let newidtag = $("#" + containerid).find(".input").attr("id");
 
+    let forcuisine = "{% for style in cuisine %}";
+    let cuisineloop = "{{style.cuisine_type}}";
+    let cuisineloopval = "\""+cuisineloop+"\"";
+    let endforloop = "{% endfor %}"
+    console.log(forcuisine);
+
     if (category === "Recipe Name") {
       $("#" + newidtag).html(`<div class="input-field col">
                     <input type="text" name="recipe_name" id="recipe_name" placeholder="Recipe name to search for" required class="entry-data"/>
@@ -35,9 +41,9 @@ function addEntryBox() {
                     </div>
                     
                     <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple>
-                        {% for style in cuisine %}
-                        <option class="dropdown-item" value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
-                        {% endfor %}
+                        ${forcuisine}
+                        <option class="dropdown-item" value=${cuisineloopval}>${cuisineloop}</option>
+                        ${endforloop}
                     </select>
                 </div>`);
       $("#" + newidtag).addClass("entry-box");
