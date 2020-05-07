@@ -62,7 +62,6 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('home'))
 
-
 @app.route('/search_recipe')
 def search_recipe():
     the_recipes = mongo.db.recipes.find()
@@ -72,7 +71,9 @@ def search_recipe():
     cooking = mongo.db.cooking.find()
     return render_template('search.html', recipes=the_recipes, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
 
-
+def search_for_recipe(query):
+    the_results = mongo.db.recipes.find(query)
+    return render_template('searchresults.html', results=the_results)
 
 if __name__ == '__main__':
     app.run(host=os.getenv('IP', "0.0.0.0"), port=int(

@@ -27,7 +27,6 @@ function addEntryBox() {
     let cuisineloop = "{{style.cuisine_type}}";
     let cuisineloopval = "\""+cuisineloop+"\"";
     let endforloop = "{% endfor %}"
-    console.log(forcuisine);
 
     if (category === "Recipe Name") {
       $("#" + newidtag).html(`<div class="input-field col">
