@@ -1,6 +1,6 @@
 function removeFilter() {
     for (i=6; i>1; i--) {
-        if (i===5) {
+        if (i===6) {
             // if the button has got 5 options left, put the add filter button back in
             if ($("#addfilterbtn").html() === "") {
                 // if the add filter button is not already there, add it back
