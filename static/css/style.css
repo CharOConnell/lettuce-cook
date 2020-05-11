@@ -65,8 +65,8 @@ body {
     }
 }
 
-#homepage {
-    min-height: 88vh;
+.home-page {
+    min-height: 85vh;
 }
 
 /* NAV BAR */
@@ -156,7 +156,9 @@ button.navbar-toggler {
 
 .img-thumbnail {
     display: block;
-    max-height: 21em;
+    width: auto;
+    height: auto;
+    max-height: 15em;
 }
 
 /* RECIPE FORM */
@@ -220,7 +222,7 @@ button.navbar-toggler {
 }
 
 .search-page {
-    min-height: 88vh;
+    min-height: 87vh;
 }
 
 #backbtn {

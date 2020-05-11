@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<div class="container-fluid no-gutters">
+<div class="container-fluid home-page">
 
   
   {% for recipe in recipes %}
@@ -7,7 +7,7 @@
   <div class="card card-accordion">
     <div class="card-header" id="{{recipe._id}}"> 
         <div class="row">
-            <div class="d-flex col col-md-3 justify-content-center">
+            <div class="d-flex col col-md-3 justify-content-center align-self-start">
                 <img src="{{recipe.photo}}" alt="{{recipe.recipe_name}}" class="img-thumbnail img-fluid"> 
             </div>
             <div class="w-100 d-md-none"></div>
