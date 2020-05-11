@@ -8,7 +8,7 @@
     <hr class="horrule">
 
     <div class="row">
-        <div class="d-flex col-3 justify-content-start align-self-center">
+        <div class="d-flex col justify-content-center justify-content-md-start align-self-center" id="backbtn">
             <a class="btn" href="{{url_for('search_recipe')}}" > Back To Search </a>
         </div>
     </div>
@@ -72,4 +72,12 @@
 </div>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+        if ($("#results").children("#accordion").length === 0) {
+            $("#results").html(`<h5 class="text-centre"> No results found. Please try searching again.</h5>`);
+        } 
+    });
+</script>
 {% endblock %}

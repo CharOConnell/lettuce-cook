@@ -216,11 +216,15 @@ button.navbar-toggler {
 /* SEARCH */
 .searching {
     padding: 0;
-    margin: 2em 0em;
+    margin: 1.5em 0em;
 }
 
 .search-page {
     min-height: 88vh;
+}
+
+#backbtn {
+    margin: 0.5em 0em;
 }
 
 /* FOOTER */
