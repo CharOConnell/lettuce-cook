@@ -34,16 +34,16 @@
     <div id="collapse{{recipe._id}}" class="collapse" aria-labelledby="{{recipe._id}}" data-parent="#accordion">
         <div class="card-body">
             <div class="row">
-                <div class="col col-lg-5" id="ingredients">
+                <div class="col col-lg-5">
                     <h4 class="title"> Ingredients: </h4>
-                    <p>
+                    <p id="ingredients{{recipe._id}}">
                     {{recipe.ingredients}}
                     </p>
                 </div>
                 <div class="w-100 d-lg-none"></div>
-                <div class="col col-lg-7" id="method">
+                <div class="col col-lg-7" id="method{{recipe._id}}">
                     <h4 class="title"> Method: </h4>
-                    <p>
+                    <p class="method">
                     {{recipe.method}} <!-- NEED TO SORT THE STYLING - through JS? -->
                     </p>
                 </div>
