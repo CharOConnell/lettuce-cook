@@ -8,7 +8,7 @@
     <hr class="horrule">
     
     <div class="row">
-        <form action="{{url_for('search_for_recipe')}}" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED {{ url_for('insert_recipe') }} method="POST" -->
+        <form action="{{url_for('test')}}" method="POST" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED {{ url_for('insert_recipe') }} method="POST" -->
             <div class="container-fluid searching" id="1">
                 <div class="row entry-box">
                     <div class="col dropdown">
@@ -48,7 +48,7 @@
             </div>
             <div class="row justify-content-around">
                 <div class="d-flex col justify-content-center align-self-center">
-                    <button class="btn" onsubmit="return false;"> Search Recipes </button> <!-- CHANGE TO SEARCH LINK -->
+                    <button class="btn" onsubmit="return false;" type="submit"> Search Recipes </button> <!-- CHANGE TO SEARCH LINK -->
                 </div>
             </div>
         </form>

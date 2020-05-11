@@ -71,10 +71,12 @@ def search_recipe():
     cooking = mongo.db.cooking.find()
     return render_template('search.html', recipes=the_recipes, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
 
-@app.route('/search_for_recipe')
-def search_for_recipe(query):
+@app.route("/test" , methods=['POST'])
+def test():
+    query = request.form
     the_results = mongo.db.recipes.find(query)
     return render_template('searchresults.html', results=the_results)
+
 
 if __name__ == '__main__':
     app.run(host=os.getenv('IP', "0.0.0.0"), port=int(

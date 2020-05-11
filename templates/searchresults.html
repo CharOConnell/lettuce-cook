@@ -2,60 +2,15 @@
 <div class="container-fluid search-page">
     <div class="row">
         <div class="col">
-            <h3 class="text-centre heading"><strong> Search For A Recipe! </strong></h3>
+            <h3 class="text-centre heading"><strong> Recipe Results! </strong></h3>
         </div>
     </div>
     <hr class="horrule">
+
     <div class="row">
-        <div class="col text-centre">
-            <h5 id="updateInput"></h5>
+        <div class="d-flex col-3 justify-content-start align-self-center">
+            <a class="btn" href="{{url_for('search_recipe')}}" > Back To Search </a>
         </div>
-    </div>
-    <div class="row">
-        <form action="{{url_for('search_for_recipe'), query}}" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED {{ url_for('insert_recipe') }} method="POST" -->
-            <div class="container-fluid searching" id="1">
-                <div class="row entry-box">
-                    <div class="col dropdown">
-                        <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonFilt1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                        Pick the category to search in
-                        </div>
-
-                        <select name="filter1" id="filter1" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt1" required multiple onchange="filterSelect(this)">
-                            <option value="recipe_name" class="dropdown-item">Recipe Name</option>
-                            <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
-                            <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
-                            <option value="prep" class="dropdown-item">Preparation Time</option>
-                            <option value="cook" class="dropdown-item">Cooking Time</option>
-                            <option value="serving_size" class="dropdown-item">Serving Size</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="row input" id="input1"></div>
-            </div>
-            
-            <div class="searching container-fluid" id="2"></div>
-            <div class="searching container-fluid" id="3"></div>
-            <div class="searching container-fluid" id="4"></div>
-            <div class="searching container-fluid" id="5"></div>
-            <div class="searching container-fluid" id="6"></div>
-
-
-            
-
-            <div class="row justify-content-around">
-                <div class="d-flex col justify-content-center align-self-center" id="addfilterbtn">
-                    <button class="btn" type="button" onclick="addFilter()"> Add Filter </button>
-                </div>
-                <div id="removefilterbtn"></div>
-                <div id="refreshfilterbtn"></div>
-            </div>
-            <div class="row justify-content-around">
-                <div class="d-flex col justify-content-center align-self-center">
-                    <button class="btn" onsubmit="return query=searchCriteria(); return false;"> Search Recipes </button> <!-- CHANGE TO SEARCH LINK -->
-                </div>
-            </div>
-        </form>
     </div>
 
     <div class="searching container-fluid" id="results">
@@ -115,5 +70,6 @@
 
     {% block results %} {% endblock %}
 </div>
+
 
 {% endblock %}
