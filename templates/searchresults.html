@@ -14,12 +14,12 @@
     </div>
 
     <div class="searching container-fluid" id="results">
-        {% for recipe in results %}
+        {% for recipe in recipes %}
         <div id="accordion">
         <div class="card card-accordion">
             <div class="card-header" id="{{recipe._id}}"> 
                 <div class="row">
-                    <div class="d-flex col col-md-3 justify-content-center">
+                    <div class="d-flex col col-md-3 justify-content-center align-self-start">
                         <img src="{{recipe.photo}}" alt="{{recipe.recipe_name}}" class="img-thumbnail img-fluid"> 
                     </div>
                     <div class="w-100 d-md-none"></div>
@@ -46,17 +46,17 @@
             <div id="collapse{{recipe._id}}" class="collapse" aria-labelledby="{{recipe._id}}" data-parent="#accordion">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col col-lg-5" id="ingredients">
+                        <div class="col col-lg-5">
                             <h4 class="title"> Ingredients: </h4>
-                            <p>
+                            <p id="ingredients{{recipe._id}}">
                             {{recipe.ingredients}}
                             </p>
                         </div>
                         <div class="w-100 d-lg-none"></div>
-                        <div class="col col-lg-7" id="method">
+                        <div class="col col-lg-7">
                             <h4 class="title"> Method: </h4>
-                            <p>
-                            {{recipe.method}} <!-- NEED TO SORT THE STYLING - through JS? -->
+                            <p id="method{{recipe._id}}">
+                            {{recipe.method}}
                             </p>
                         </div>
                     </div>         
