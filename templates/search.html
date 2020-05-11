@@ -6,9 +6,9 @@
         </div>
     </div>
     <hr class="horrule">
-
+    
     <div class="row">
-        <form action="{{url_for('search_for_recipe'), query=searchCriteria()}}" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED {{ url_for('insert_recipe') }} method="POST" -->
+        <form action="{{url_for('search_for_recipe')}}" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED {{ url_for('insert_recipe') }} method="POST" -->
             <div class="container-fluid searching" id="1">
                 <div class="row entry-box">
                     <div class="col dropdown">
@@ -16,7 +16,7 @@
                         Pick the category to search in
                         </div>
 
-                        <select name="filter1" id="filter1" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt1" required multiple onchange="filterSelect(this)">
+                        <select id="filter1" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt1" required multiple onchange="filterSelect(this)">
                             <option value="recipe_name" class="dropdown-item">Recipe Name</option>
                             <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
                             <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
@@ -37,8 +37,7 @@
             <div class="searching container-fluid" id="6"></div>
 
 
-            <div class="searching container-fluid" id="results"></div>
-
+            
 
             <div class="row justify-content-around">
                 <div class="d-flex col justify-content-center align-self-center" id="addfilterbtn">
@@ -49,11 +48,13 @@
             </div>
             <div class="row justify-content-around">
                 <div class="d-flex col justify-content-center align-self-center">
-                    <button class="btn" onsubmit="return searchCriteria()"> Search Recipes </button> <!-- CHANGE TO SEARCH LINK -->
+                    <button class="btn" onsubmit="return false;"> Search Recipes </button> <!-- CHANGE TO SEARCH LINK -->
                 </div>
             </div>
         </form>
     </div>
+
+    <div class="searching container-fluid" id="results"></div>
 
     {% block results %} {% endblock %}
 </div>

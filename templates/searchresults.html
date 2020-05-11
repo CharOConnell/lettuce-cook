@@ -1,4 +1,119 @@
-{% extends 'search.html' %} {% block results %}
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid search-page">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-centre heading"><strong> Search For A Recipe! </strong></h3>
+        </div>
+    </div>
+    <hr class="horrule">
+    <div class="row">
+        <div class="col text-centre">
+            <h5 id="updateInput"></h5>
+        </div>
+    </div>
+    <div class="row">
+        <form action="{{url_for('search_for_recipe'), query}}" class="col"> <!-- CHANGE THIS TO SEARCH RECIPES WHEN CREATED {{ url_for('insert_recipe') }} method="POST" -->
+            <div class="container-fluid searching" id="1">
+                <div class="row entry-box">
+                    <div class="col dropdown">
+                        <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonFilt1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        Pick the category to search in
+                        </div>
 
-<div>Test</div>
+                        <select name="filter1" id="filter1" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt1" required multiple onchange="filterSelect(this)">
+                            <option value="recipe_name" class="dropdown-item">Recipe Name</option>
+                            <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
+                            <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
+                            <option value="prep" class="dropdown-item">Preparation Time</option>
+                            <option value="cook" class="dropdown-item">Cooking Time</option>
+                            <option value="serving_size" class="dropdown-item">Serving Size</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row input" id="input1"></div>
+            </div>
+            
+            <div class="searching container-fluid" id="2"></div>
+            <div class="searching container-fluid" id="3"></div>
+            <div class="searching container-fluid" id="4"></div>
+            <div class="searching container-fluid" id="5"></div>
+            <div class="searching container-fluid" id="6"></div>
+
+
+            
+
+            <div class="row justify-content-around">
+                <div class="d-flex col justify-content-center align-self-center" id="addfilterbtn">
+                    <button class="btn" type="button" onclick="addFilter()"> Add Filter </button>
+                </div>
+                <div id="removefilterbtn"></div>
+                <div id="refreshfilterbtn"></div>
+            </div>
+            <div class="row justify-content-around">
+                <div class="d-flex col justify-content-center align-self-center">
+                    <button class="btn" onsubmit="return query=searchCriteria(); return false;"> Search Recipes </button> <!-- CHANGE TO SEARCH LINK -->
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="searching container-fluid" id="results">
+        {% for recipe in results %}
+        <div id="accordion">
+        <div class="card card-accordion">
+            <div class="card-header" id="{{recipe._id}}"> 
+                <div class="row">
+                    <div class="d-flex col col-md-3 justify-content-center">
+                        <img src="{{recipe.photo}}" alt="{{recipe.recipe_name}}" class="img-thumbnail img-fluid"> 
+                    </div>
+                    <div class="w-100 d-md-none"></div>
+                    <div class="col-10-offset-1 col-md-7 offset-md-0">
+                        <h3 class="title"> {{recipe.recipe_name}}</h3> 
+                        
+                        <p class="description"> {{recipe.recipe_description}} </p>
+                        <ul class="info-tab">
+                            <li>Prep Time: {{recipe.preparation_time}}</li>
+                            <li>Cooking Time: {{recipe.cooking_time}} </li> 
+                            <li>Difficulty: {{recipe.difficulty_level}} </li> 
+                            <li>Serves: {{recipe.serving_size}}</li>
+                            <li>Cuisine Style: {{recipe.cuisine_type}}</li>
+                        </ul>
+                    </div>
+                    <div class="w-100 d-md-none"></div>
+                    <div class="d-flex col col-md-2 justify-content-around justify-content-md-end flex-md-wrap align-self-md-end">
+                        <a class="btn" href="{{url_for('edit_recipe', recipe_id=recipe._id)}}"> Edit Recipe </a>
+                        <button class="btn" data-toggle="collapse" data-target="#collapse{{recipe._id}}" aria-expanded="true" aria-controls="collapse{{recipe._id}}"
+                        id="btn{{recipe._id}}" onclick="buttonUpdate(id)">Show More +</button>
+                    </div>
+                </div>
+            </div>
+            <div id="collapse{{recipe._id}}" class="collapse" aria-labelledby="{{recipe._id}}" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col col-lg-5" id="ingredients">
+                            <h4 class="title"> Ingredients: </h4>
+                            <p>
+                            {{recipe.ingredients}}
+                            </p>
+                        </div>
+                        <div class="w-100 d-lg-none"></div>
+                        <div class="col col-lg-7" id="method">
+                            <h4 class="title"> Method: </h4>
+                            <p>
+                            {{recipe.method}} <!-- NEED TO SORT THE STYLING - through JS? -->
+                            </p>
+                        </div>
+                    </div>         
+            </div>
+            </div>
+        </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    {% block results %} {% endblock %}
+</div>
+
 {% endblock %}

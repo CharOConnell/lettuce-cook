@@ -17,7 +17,6 @@ function addFilter() {
         }
         if ($("#"+i).html() === "") {
             // get the special tag names
-            let nameval = "filter"+i;
             let id1val = "dropdownMenuButtonFilt"+i;
             let id2val = "filter"+i;
             let inputval = "input"+i;
@@ -28,7 +27,7 @@ function addFilter() {
                             Pick the category to search in
                             </div>
 
-                            <select name=${nameval} id=${id2val} class="dropdown-menu" aria-labelledby=${id1val} multiple onchange="filterSelect(this)">
+                            <select id=${id2val} class="dropdown-menu" aria-labelledby=${id1val} multiple onchange="filterSelect(this)">
                                 <option value="recipe_name" class="dropdown-item">Recipe Name</option>
                                 <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
                                 <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
