@@ -3,7 +3,7 @@ function buttonUpdate(id) {
     // get the id of the recipe being viewed
     let fullid = id.slice(3);
     // split up the ingredients by the delimiter "," and method with "\n"
-    let ingredientsChange = $("#ingredients"+fullid).html().split(",");
+    let ingredientsChange = $("#ingredients"+fullid).html().split("\n");
     let ingredientsUpdate = "";
     var methodChange = $("#method"+fullid).html().split("\n");
     methodChange = methodChange.slice(1);
