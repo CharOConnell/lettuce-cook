@@ -149,9 +149,8 @@ Pushing to Heroku from Git:
 - The following was entered inside the Git bash terminal:
     - $ heroku login
     - $ heroku apps
-    - $ heroku git:remote -a app-name-of-heroku-app
+    - $ heroku git:remote -a lettuce-cook
     - $ git push heroku master
-    - $ heroku ps:scale web=1
 - The webpage was then deployed to Heroku
 
 To deploy this project locally, you will need to do the following:
@@ -173,7 +172,6 @@ To deploy this project locally, you will need to do the following:
     - $ heroku apps
     - $ heroku git:remote -a app-name-of-heroku-app
     - $ git push heroku master
-    - $ heroku ps:scale web=1
 - Your project will the be published to Heroku
 
 ## Credits
