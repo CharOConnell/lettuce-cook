@@ -10,7 +10,7 @@ function refreshFilters() {
                     Pick the category to search in
                     </div>
 
-                    <select name="filter1" id="filter1" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt1" required multiple onchange="filterSelect(this)">
+                    <select name="filter1" id="filter1" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt1" required multiple onchange="filterSelect(this); addEntryBoxSearch();">
                         <option value="recipe_name" class="dropdown-item">Recipe Name</option>
                         <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
                         <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
