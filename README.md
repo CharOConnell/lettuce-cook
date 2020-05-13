@@ -115,6 +115,7 @@ Testing the add functionality:
 
 Checking using Validator:
 - HTML validity was checked using the online validator [here](validator.w3.org)
+- Errors were thrown when the Flask references were used within the HTML
 - CSS was checked uing the online validator [here](http://www.css-validator.org/)
 
 Screen sizes:
@@ -129,7 +130,8 @@ Browser details:
 
 Bugs found:
 - Could not populate the data into the results section within the search page, so had to create a separate search results page with link back to the search page
-- Interactive buttons to add fields to the html in the search filters section did not push the database variables to the javascript functions
+- Interactive buttons to add fields to the html in the search filters section did not pass the database variables to the javascript functions
+- Static javascript scripts were not accessed until replaced with url_for() static link
 
 ## Deployment
 This project has been deployed using Heroku.

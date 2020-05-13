@@ -1,174 +1,174 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container-fluid">
-<!-- TITLE -->
-<div class="row">
-    <div class="col">
-        <h3 class="text-centre heading"><strong> Edit A Recipe! </strong></h3>
+    <!-- TITLE -->
+    <div class="row">
+        <div class="col">
+            <h3 class="text-centre heading"><strong> Edit A Recipe! </strong></h3>
+        </div>
     </div>
-</div>
-<hr class="horrule">
+    <hr class="horrule">
 
-<!-- EDIT FORM -->
-<div class="row">
-	<form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" class="col">
-		<!-- RECIPE NAME -->
-        <div class="row">
-            <div class="col heading-form">
-                Recipe Name: 
-            </div>
-		</div>
-        <div class="row entry-box">
-            <div class="input-field col">
-                <input type="text" name="recipe_name" id="recipe_name" placeholder="Guacamole" required class="entry-data" value="{{recipe.recipe_name}}"/>
-            </div>
-        </div>
-        <!-- DESCRIPTION -->
-        <div class="row">
-            <div class="col heading-form">
-                Description: 
-            </div>
-		</div>
-        <div class="row entry-box">
-            <div class="input-field col">
-                <input type="text" name="recipe_description" id="description" placeholder="A fun take on the iconic dish." required class="entry-data" value="{{recipe.recipe_description}}"/>
-            </div>
-        </div>
-        <!-- PHOTO LINK -->
-        <div class="row">
-            <div class="col heading-form">
-                Photo: 
-            </div>
-		</div>
-        <div class="row entry-box">
-            <div class="input-field col">
-                <input type="url" name="photo" id="photo" placeholder="Add link to a photo of the recipe from the web" required class="entry-data" value="{{recipe.photo}}"/>
-            </div>
-        </div>
-        <!-- DIFFICULTY -->
-        <div class="row">
-            <div class="col heading-form">
-                Difficulty: 
-            </div>
-		</div>
-        <div class="row entry-box">
-            <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    {{recipe.difficulty_level}}
-                </div>                
-                <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple onchange="filterSelect(this)">
-                    {% for diffi in difficulty %}
-                    <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
-                    {% endfor %}
-                </select>                
-            </div>
-        </div>
-        <!-- CUISINE TYPE -->
-        <div class="row">
-            <div class="col heading-form">
-                Cuisine Style: 
-            </div>
-		</div>
-        <div class="row entry-box">
-            <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCui" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    {{recipe.cuisine_type}}
+    <!-- EDIT FORM -->
+    <div class="row">
+        <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" class="col">
+            <!-- RECIPE NAME -->
+            <div class="row">
+                <div class="col heading-form">
+                    Recipe Name: 
                 </div>
-                <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple onchange="filterSelect(this)">
-                    {% for style in cuisine %}
-                    <option class="dropdown-item" value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
-                    {% endfor %}
-                </select>
             </div>
-        </div>
-        <!-- PREP TIME -->
-        <div class="row">
-            <div class="col heading-form">
-                Preparation Time: 
-            </div>
-		</div>
-        <div class="row entry-box">
-            <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonPrep" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    {{recipe.preparation_time}}
+            <div class="row entry-box">
+                <div class="input-field col">
+                    <input type="text" name="recipe_name" id="recipe_name" placeholder="Guacamole" required class="entry-data" value="{{recipe.recipe_name}}"/>
                 </div>
-                <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" multiple onchange="filterSelect(this)">
-                    {% for time_prep in prep %}
-                    <option class="dropdown-item" value="{{time_prep.prep_time}}">{{time_prep.prep_time}}</option>
-                    {% endfor %}
-                </select>
             </div>
-        </div>
-        <!-- COOKING TIME -->
-        <div class="row">
-            <div class="col heading-form">
-                Cooking Time: 
-            </div>
-		</div>
-        <div class="row entry-box">
-            <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCook" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    {{recipe.cooking_time}}
+            <!-- DESCRIPTION -->
+            <div class="row">
+                <div class="col heading-form">
+                    Description: 
                 </div>
-                <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" multiple onchange="filterSelect(this)">
-                    {% for cook_time in cook %}
-                    <option class="dropdown-item" value="{{cook_time.cooking_time}}">{{cook_time.cooking_time}}</option>
-                    {% endfor %}
-                </select>
             </div>
-        </div>
-        <!-- SERVING SIZE -->
-        <div class="row">
-            <div class="col heading-form">
-                Serves: 
+            <div class="row entry-box">
+                <div class="input-field col">
+                    <input type="text" name="recipe_description" id="description" placeholder="A fun take on the iconic dish." required class="entry-data" value="{{recipe.recipe_description}}"/>
+                </div>
             </div>
-		</div>
-        <div class="row entry-box">
-            <div class="input-field col">
-                <input type="number" name="serving_size" id="serving" placeholder="Input how many people this serves / quantity it makes" required class="entry-data" value="{{recipe.serving_size}}"/> 
+            <!-- PHOTO LINK -->
+            <div class="row">
+                <div class="col heading-form">
+                    Photo: 
+                </div>
             </div>
-        </div>
-        <!-- INGREDIENTS -->
-        <div class="row">
-            <div class="col heading-form">
-                Ingredients: 
+            <div class="row entry-box">
+                <div class="input-field col">
+                    <input type="url" name="photo" id="photo" placeholder="Add link to a photo of the recipe from the web" required class="entry-data" value="{{recipe.photo}}"/>
+                </div>
             </div>
-		</div>
-        <div class="row entry-box">
-            <div class="input-field col">
-                <textarea name="ingredients" id="ingredients" 
+            <!-- DIFFICULTY -->
+            <div class="row">
+                <div class="col heading-form">
+                    Difficulty: 
+                </div>
+            </div>
+            <div class="row entry-box">
+                <div class="col dropdown">
+                    <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        {{recipe.difficulty_level}}
+                    </div>                
+                    <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple onchange="filterSelect(this)">
+                        {% for diffi in difficulty %}
+                        <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
+                        {% endfor %}
+                    </select>                
+                </div>
+            </div>
+            <!-- CUISINE TYPE -->
+            <div class="row">
+                <div class="col heading-form">
+                    Cuisine Style: 
+                </div>
+            </div>
+            <div class="row entry-box">
+                <div class="col dropdown">
+                    <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCui" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        {{recipe.cuisine_type}}
+                    </div>
+                    <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple onchange="filterSelect(this)">
+                        {% for style in cuisine %}
+                        <option class="dropdown-item" value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <!-- PREP TIME -->
+            <div class="row">
+                <div class="col heading-form">
+                    Preparation Time: 
+                </div>
+            </div>
+            <div class="row entry-box">
+                <div class="col dropdown">
+                    <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonPrep" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        {{recipe.preparation_time}}
+                    </div>
+                    <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" multiple onchange="filterSelect(this)">
+                        {% for time_prep in prep %}
+                        <option class="dropdown-item" value="{{time_prep.prep_time}}">{{time_prep.prep_time}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <!-- COOKING TIME -->
+            <div class="row">
+                <div class="col heading-form">
+                    Cooking Time: 
+                </div>
+            </div>
+            <div class="row entry-box">
+                <div class="col dropdown">
+                    <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCook" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        {{recipe.cooking_time}}
+                    </div>
+                    <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" multiple onchange="filterSelect(this)">
+                        {% for cook_time in cook %}
+                        <option class="dropdown-item" value="{{cook_time.cooking_time}}">{{cook_time.cooking_time}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <!-- SERVING SIZE -->
+            <div class="row">
+                <div class="col heading-form">
+                    Serves: 
+                </div>
+            </div>
+            <div class="row entry-box">
+                <div class="input-field col">
+                    <input type="number" name="serving_size" id="serving" placeholder="Input how many people this serves / quantity it makes" required class="entry-data" value="{{recipe.serving_size}}"/> 
+                </div>
+            </div>
+            <!-- INGREDIENTS -->
+            <div class="row">
+                <div class="col heading-form">
+                    Ingredients: 
+                </div>
+            </div>
+            <div class="row entry-box">
+                <div class="input-field col">
+                    <textarea name="ingredients" id="ingredients" 
 placeholder="1 large whole avocado, 
 1 large ripe tomato,
 ..." required class="entry-data">{{recipe.ingredients}}</textarea>
+                </div>
             </div>
-        </div>
-        <!-- METHOD -->
-        <div class="row">
-            <div class="col heading-form">
-                Method: 
+            <!-- METHOD -->
+            <div class="row">
+                <div class="col heading-form">
+                    Method: 
+                </div>
             </div>
-		</div>
-        <div class="row entry-box">
-            <div class="input-field col">
-                <textarea name="method" id="method" 
+            <div class="row entry-box">
+                <div class="input-field col">
+                    <textarea name="method" id="method" 
 placeholder="1. Please separate your method steps with numbers. 
 2. Like this ..." required class="entry-data">{{recipe.method}}</textarea>
+                </div>
             </div>
-        </div>
 
-        <!-- EDIT / CANCEL / DELETE BUTTONS -->
-        <div class="row justify-content-around">
-            <div class="d-flex col-4 justify-content-center justify-content-md-end align-self-center">
-                <button class="btn" type="submit"> Edit Recipe </button>
+            <!-- EDIT / CANCEL / DELETE BUTTONS -->
+            <div class="row justify-content-around">
+                <div class="d-flex col-4 justify-content-center justify-content-md-end align-self-center">
+                    <button class="btn" type="submit"> Edit Recipe </button>
+                </div>
+                <div class="d-flex col-4 justify-content-center align-self-center">
+                    <a class="btn" href="{{url_for('home')}}" > Cancel </a>
+                </div>
+                <div class="d-flex col-4 justify-content-center justify-content-md-start align-self-center">
+                    <a class="btn" href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"> Delete Recipe </a> 
+                </div>
             </div>
-            <div class="d-flex col-4 justify-content-center align-self-center">
-                <a class="btn" href="{{url_for('home')}}" > Cancel </a>
-            </div>
-            <div class="d-flex col-4 justify-content-center justify-content-md-start align-self-center">
-                <a class="btn" href="{{url_for('delete_recipe', recipe_id=recipe._id)}}"> Delete Recipe </a> 
-            </div>
-        </div>
-	</form>
-</div>
+        </form>
+    </div>
 </div>
 
 {% endblock %}
