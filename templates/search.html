@@ -69,7 +69,6 @@ function addEntryBoxSearch() {
         let category = $("#" + idtag).html();
         let newidtag = $("#" + containerid).find(".input").attr("id");
 
-        console.log(newidtag);
         // Update the input boxes to dropdowns if that category demands it
         if (category === "Recipe Name") {
             $("#" + newidtag).html(`<div class="input-field col">
@@ -82,7 +81,7 @@ function addEntryBoxSearch() {
                         Choose the cuisine type
                         </div>
                         
-                        <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" required multiple onchange="filterSelect(this); addEntryBoxSearch();">
+                        <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" required multiple onchange="filterSelect(this);">
                             {% for style in cuisine %}
                             <option class="dropdown-item" value={{style.cuisine_type}}>{{style.cuisine_type}}</option>
                             {% endfor %}
@@ -95,7 +94,7 @@ function addEntryBoxSearch() {
                         Choose the difficulty level
                         </div>
                         
-                        <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" required multiple onchange="filterSelect(this); addEntryBoxSearch();">
+                        <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" required multiple onchange="filterSelect(this);">
                             {% for diffi in difficulty %}
                             <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
                             {% endfor %}
@@ -108,7 +107,7 @@ function addEntryBoxSearch() {
                         Choose the preparation time
                         </div>
                         
-                        <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" required multiple onchange="filterSelect(this); addEntryBoxSearch();">
+                        <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" required multiple onchange="filterSelect(this);">
                             {% for prep in preparation %}
                             <option class="dropdown-item" value="{{prep.prep_time}}">{{prep.prep_time}}</option>
                             {% endfor %}
@@ -121,7 +120,7 @@ function addEntryBoxSearch() {
                         Choose the cooking time
                         </div>
                         
-                        <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" required multiple onchange="filterSelect(this); addEntryBoxSearch();">
+                        <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" required multiple onchange="filterSelect(this);">
                             {% for cook in cooking %}
                             <option class="dropdown-item" value="{{cook.cooking_time}}">{{cook.cooking_time}}</option>
                             {% endfor %}

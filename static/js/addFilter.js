@@ -27,7 +27,7 @@ function addFilter() {
                             Pick the category to search in
                             </div>
 
-                            <select id=${id2val} class="dropdown-menu" aria-labelledby=${id1val} multiple onchange="filterSelect(this)">
+                            <select id=${id2val} class="dropdown-menu" aria-labelledby=${id1val} multiple required onchange="filterSelect(this); addEntryBoxSearch();">
                                 <option value="recipe_name" class="dropdown-item">Recipe Name</option>
                                 <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
                                 <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
