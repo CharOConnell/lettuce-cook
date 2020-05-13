@@ -44,7 +44,7 @@ function addEntryBox() {
                         Choose the cuisine type
                         </div>
                         
-                        <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple>
+                        <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" required multiple onchange="filterSelect(this)">
                             ${forcuisine}
                             <option class="dropdown-item" value=${cuisineloopval}>${cuisineloop}</option>
                             ${endforloop}
@@ -57,7 +57,7 @@ function addEntryBox() {
                         Choose the difficulty level
                         </div>
                         
-                        <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple>
+                        <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" required multiple onchange="filterSelect(this)">
                             {% for diffi in difficulty %}
                             <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
                             {% endfor %}
@@ -70,7 +70,7 @@ function addEntryBox() {
                         Choose the preparation time
                         </div>
                         
-                        <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" multiple>
+                        <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" required multiple onchange="filterSelect(this)">
                             {% for prep in preparation %}
                             <option class="dropdown-item" value="{{prep.preparation_time}}">{{prep.preparation_time}}</option>
                             {% endfor %}
@@ -83,7 +83,7 @@ function addEntryBox() {
                         Choose the cooking time
                         </div>
                         
-                        <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" multiple>
+                        <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" required multiple onchange="filterSelect(this)">
                             {% for cook in cooking %}
                             <option class="dropdown-item" value="{{cook.cooking_time}}">{{cook.cooking_time}}</option>
                             {% endfor %}

@@ -52,7 +52,7 @@
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                   Pick the difficulty level
                 </div>                
-                <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple onchange="filterSelect(this)">
+                <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" required multiple onchange="filterSelect(this)">
                     {% for diffi in difficulty %}
                     <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
                     {% endfor %}
@@ -70,7 +70,7 @@
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCui" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                     Pick the cuisine style
                 </div>
-                <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple onchange="filterSelect(this)">
+                <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" required multiple onchange="filterSelect(this)">
                     {% for style in cuisine %}
                     <option class="dropdown-item" value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
                     {% endfor %}
@@ -88,7 +88,7 @@
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonPrep" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                     Choose your preparation time
                 </div>
-                <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" multiple onchange="filterSelect(this)">
+                <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" required multiple onchange="filterSelect(this)">
                     {% for time_prep in prep %}
                     <option class="dropdown-item" value="{{time_prep.prep_time}}">{{time_prep.prep_time}}</option>
                     {% endfor %}
@@ -106,7 +106,7 @@
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCook" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                     Choose your cooking time
                 </div>
-                <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" multiple onchange="filterSelect(this)">
+                <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" required multiple onchange="filterSelect(this)">
                     {% for cook_time in cook %}
                     <option class="dropdown-item" value="{{cook_time.cooking_time}}">{{cook_time.cooking_time}}</option>
                     {% endfor %}
