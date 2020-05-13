@@ -51,14 +51,12 @@
             <div class="col dropdown">
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                   Pick the difficulty level
-                </div>
-                
+                </div>                
                 <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple onchange="filterSelect(this)">
                     {% for diffi in difficulty %}
                     <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
                     {% endfor %}
-                </select>
-                
+                </select>                
             </div>
         </div>
 
