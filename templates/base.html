@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Load in external stylesheets -->
+    <!-- Load in stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css"/>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
 
     <title>Lettuce Cook</title>
-    
 </head>
 <body>
 <!-- NAVBAR HEADER -->
@@ -34,12 +33,12 @@
 	</header>
 
     
-      {% block content %} {% endblock %}
-      <!-- sends redirect to the other content html files -->
+    {% block content %} {% endblock %}
+    
     
     <footer class="footer"></footer>
 
-    <!-- BOOTSTRAP JAVA SOURCE CODE -->
+    <!-- JAVASCRIPT / BOOTSTRAP SOURCE CODE LINKS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"></script>
