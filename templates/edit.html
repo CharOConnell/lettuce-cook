@@ -50,15 +50,13 @@
         <div class="row entry-box">
             <div class="col dropdown">
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                  {{recipe.difficulty_level}}
-                </div>
-                
+                    {{recipe.difficulty_level}}
+                </div>                
                 <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" multiple onchange="filterSelect(this)">
                     {% for diffi in difficulty %}
                     <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
                     {% endfor %}
-                </select>
-                
+                </select>                
             </div>
         </div>
 
@@ -70,7 +68,7 @@
         <div class="row entry-box">
             <div class="col dropdown">
                 <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCui" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                   {{recipe.cuisine_type}}
+                    {{recipe.cuisine_type}}
                 </div>
                 <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" multiple onchange="filterSelect(this)">
                     {% for style in cuisine %}
