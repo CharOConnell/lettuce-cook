@@ -22,7 +22,7 @@ function addFilter() {
             $("#"+i).html(`<div class="row entry-box">
                 <!-- FILTER DROPDOWN -->
                     <div class="col input-field">
-                        <select class="form-control" name="${filterval}" id="${filterval}" onchange="addBoxSearch(value, id);">
+                        <select class="form-control" id="${filterval}" onchange="addBoxSearch(value, id);">
                             <option value="">Search Category</option>
                             <option value="recipe_name">Recipe Name</option>
                             <option value="cuisine_type">Cuisine Type</option>
