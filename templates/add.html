@@ -22,6 +22,7 @@
                 <input type="text" name="recipe_name" id="recipe_name" placeholder="Guacamole" required class="entry-data"/>
             </div>
         </div>
+
         <!-- DESCRIPTION -->
         <div class="row">
             <div class="col heading-form">
@@ -33,6 +34,7 @@
                 <input type="text" name="recipe_description" id="description" placeholder="A fun take on the iconic dish." required class="entry-data"/>
             </div>
         </div>
+
         <!-- PHOTO LINK -->
         <div class="row">
             <div class="col heading-form">
@@ -44,6 +46,7 @@
                 <input type="url" name="photo" id="photo" placeholder="Add link to a photo of the recipe from the web" required class="entry-data"/>
             </div>
         </div>
+
         <!-- DIFFICULTY -->
         <div class="row">
             <div class="col heading-form">
@@ -51,17 +54,15 @@
             </div>
 		</div>
         <div class="row entry-box">
-            <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonDiff" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                  Pick the difficulty level
-                </div>                
-                <select id="difficulty" name="difficulty_level" class="dropdown-menu" aria-labelledby="dropdownMenuButtonDiff" required multiple onchange="filterSelect(this)">
+            <div class="col">
+                <select class="form-control" name="difficulty_level" id="difficulty">
                     {% for diffi in difficulty %}
-                    <option class="dropdown-item" value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
+                    <option value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
                     {% endfor %}
-                </select>                
+                </select>
             </div>
         </div>
+
         <!-- CUISINE TYPE -->
         <div class="row">
             <div class="col heading-form">
@@ -69,17 +70,15 @@
             </div>
 		</div>
         <div class="row entry-box">
-            <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCui" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Pick the cuisine style
-                </div>
-                <select id="cuisine" name="cuisine_type" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCui" required multiple onchange="filterSelect(this)">
+            <div class="col">
+                <select class="form-control" name="cuisine_type" id="cuisine">
                     {% for style in cuisine %}
-                    <option class="dropdown-item" value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
+                    <option value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
                     {% endfor %}
                 </select>
             </div>
         </div>
+
         <!-- PREP TIME -->
         <div class="row">
             <div class="col heading-form">
@@ -87,17 +86,15 @@
             </div>
 		</div>
         <div class="row entry-box">
-            <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonPrep" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Choose your preparation time
-                </div>
-                <select id="preparation" name="preparation_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonPrep" required multiple onchange="filterSelect(this)">
+            <div class="col">
+                <select class="form-control" name="prep_time" id="preparation">
                     {% for time_prep in prep %}
-                    <option class="dropdown-item" value="{{time_prep.prep_time}}">{{time_prep.prep_time}}</option>
+                    <option value="{{time_prep.prep_time}}">{{time_prep.prep_time}}</option>
                     {% endfor %}
                 </select>
             </div>
         </div>
+
         <!-- COOKING TIME -->
         <div class="row">
             <div class="col heading-form">
@@ -105,17 +102,15 @@
             </div>
 		</div>
         <div class="row entry-box">
-            <div class="col dropdown">
-                <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonCook" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Choose your cooking time
-                </div>
-                <select id="cooking" name="cooking_time" class="dropdown-menu" aria-labelledby="dropdownMenuButtonCook" required multiple onchange="filterSelect(this)">
+            <div class="col">
+                <select class="form-control" name="cooking_time" id="cooking">
                     {% for cook_time in cook %}
-                    <option class="dropdown-item" value="{{cook_time.cooking_time}}">{{cook_time.cooking_time}}</option>
+                    <option value="{{cook_time.cooking_time}}">{{cook_time.cooking_time}}</option>
                     {% endfor %}
                 </select>
             </div>
         </div>
+        
         <!-- SERVING SIZE -->
         <div class="row">
             <div class="col heading-form">
