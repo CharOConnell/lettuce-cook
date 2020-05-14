@@ -5,21 +5,20 @@ function refreshFilters() {
     }
     // put in the first value of data
     $("#1").html(`<div class="row entry-box">
-                <div class="col dropdown">
-                    <div class="input-field-dropdown dropdown-toggle" role="button" id="dropdownMenuButtonFilt1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                    Pick the category to search in
-                    </div>
-
-                    <select name="filter1" id="filter1" class="dropdown-menu" aria-labelledby="dropdownMenuButtonFilt1" required multiple onchange="filterSelect(this); addEntryBoxSearch();">
-                        <option value="recipe_name" class="dropdown-item">Recipe Name</option>
-                        <option value="cuisine_type" class="dropdown-item">Cuisine Type</option>
-                        <option value="difficulty_level" class="dropdown-item">Difficulty Level</option>
-                        <option value="prep" class="dropdown-item">Preparation Time</option>
-                        <option value="cook" class="dropdown-item">Cooking Time</option>
-                        <option value="serving_size" class="dropdown-item">Serving Size</option>
+            <!-- FILTER DROPDOWN -->
+                <div class="col">
+                    <select class="form-control" name="filter1" id="filter1" onchange="addBoxSearch(value, id);">
+                        <option value="">Search Category</option>
+                        <option value="recipe_name">Recipe Name</option>
+                        <option value="cuisine_type">Cuisine Type</option>
+                        <option value="difficulty_level">Difficulty Level</option>
+                        <option value="prep">Preparation Time</option>
+                        <option value="cook">Cooking Time</option>
+                        <option value="serving_size">Serving Size</option>
                     </select>
                 </div>
             </div>
-            
+
+            <!-- INPUT FIELD - Linked to the choice in the dropdown above -->
             <div class="row input" id="input1"></div>`);
 }
