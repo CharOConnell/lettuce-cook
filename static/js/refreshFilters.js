@@ -6,7 +6,7 @@ function refreshFilters() {
     // put in the first value of data
     $("#1").html(`<div class="row entry-box">
             <!-- FILTER DROPDOWN -->
-                <div class="col">
+                <div class="col input-field">
                     <select class="form-control" name="filter1" id="filter1" onchange="addBoxSearch(value, id);">
                         <option value="">Search Category</option>
                         <option value="recipe_name">Recipe Name</option>

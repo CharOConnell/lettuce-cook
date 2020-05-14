@@ -21,7 +21,7 @@ function addFilter() {
             // if there is no filter, add the filter option boxes
             $("#"+i).html(`<div class="row entry-box">
                 <!-- FILTER DROPDOWN -->
-                    <div class="col">
+                    <div class="col input-field">
                         <select class="form-control" name="${filterval}" id="${filterval}" onchange="addBoxSearch(value, id);">
                             <option value="">Search Category</option>
                             <option value="recipe_name">Recipe Name</option>

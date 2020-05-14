@@ -54,7 +54,7 @@
             </div>
 		</div>
         <div class="row entry-box">
-            <div class="col">
+            <div class="input-field col">
                 <select class="form-control" name="difficulty_level" id="difficulty">
                     {% for diffi in difficulty %}
                     <option value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
@@ -70,7 +70,7 @@
             </div>
 		</div>
         <div class="row entry-box">
-            <div class="col">
+            <div class="input-field col">
                 <select class="form-control" name="cuisine_type" id="cuisine">
                     {% for style in cuisine %}
                     <option value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
@@ -86,7 +86,7 @@
             </div>
 		</div>
         <div class="row entry-box">
-            <div class="col">
+            <div class="input-field col">
                 <select class="form-control" name="prep_time" id="preparation">
                     {% for time_prep in prep %}
                     <option value="{{time_prep.prep_time}}">{{time_prep.prep_time}}</option>
@@ -102,7 +102,7 @@
             </div>
 		</div>
         <div class="row entry-box">
-            <div class="col">
+            <div class="input-field col">
                 <select class="form-control" name="cooking_time" id="cooking">
                     {% for cook_time in cook %}
                     <option value="{{cook_time.cooking_time}}">{{cook_time.cooking_time}}</option>

@@ -14,7 +14,7 @@
             <div class="container-fluid searching" id="1">
                 <div class="row entry-box">
                 <!-- FILTER DROPDOWN -->
-                    <div class="col">
+                    <div class="col input-field">
                         <select class="form-control" name="filter1" id="filter1" onchange="addBoxSearch(value, id);">
                             <option value="">Search Category</option>
                             <option value="recipe_name">Recipe Name</option>
@@ -67,7 +67,7 @@ function addBoxSearch(val, leId) {
             <input type="text" name="recipe_name" id="recipe_name" placeholder="Recipe name to search for" required class="entry-data"/>
             </div>`).addClass("entry-box");
     } else if (val === "cuisine_type") {
-        $("#"+inputval).html(`<div class="col">
+        $("#"+inputval).html(`<div class="col input-field">
                 <select class="form-control" name="cuisine_type" id="cuisine">
                     {% for style in cuisine %}
                     <option value="{{style.cuisine_type}}">{{style.cuisine_type}}</option>
@@ -75,7 +75,7 @@ function addBoxSearch(val, leId) {
                 </select>
             </div>`).addClass("entry-box");
     } else if (val === "difficulty_level") {
-        $("#"+inputval).html(`<div class="col">
+        $("#"+inputval).html(`<div class="col input-field">
                 <select class="form-control" name="difficulty_level" id="difficulty">
                     {% for diffi in difficulty %}
                     <option value="{{diffi.difficulty_level}}">{{diffi.difficulty_level}}</option>
@@ -83,7 +83,7 @@ function addBoxSearch(val, leId) {
                 </select>
             </div>`).addClass("entry-box");
     } else if (val === "prep") {
-        $("#"+inputval).html(`<div class="col">
+        $("#"+inputval).html(`<div class="col input-field">
                 <select class="form-control" name="prep_time" id="preparation">
                     {% for time_prep in prep %}
                     <option value="{{time_prep.prep_time}}">{{time_prep.prep_time}}</option>
@@ -91,7 +91,7 @@ function addBoxSearch(val, leId) {
                 </select>
             </div>`).addClass("entry-box");
     } else if (val === "cook") {
-        $("#"+inputval).html(`<div class="col">
+        $("#"+inputval).html(`<div class="col input-field">
                 <select class="form-control" name="cooking_time" id="cooking">
                     {% for cook_time in cook %}
                     <option value="{{cook_time.cooking_time}}">{{cook_time.cooking_time}}</option>

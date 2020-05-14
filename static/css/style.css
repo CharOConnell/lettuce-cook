@@ -184,29 +184,6 @@ button.navbar-toggler {
     padding: 0;
 }
 
-.dropdown {
-    padding: 0;
-}
-
-.dropdown-toggle {
-    white-space: nowrap;
-    color: #6c757d;
-    background-color: #fff;
-    padding: 0.2em;
-    border: 1px solid #999999;
-}
-
-.dropdown-toggle::after {
-    float: right;
-    margin-top: 0.5em;
-}
-
-.dropdown-menu.show {
-    display: block;
-    width: 100%;
-    color: #6c757d;
-}
-
 #ingredients {
     height: 10em;
 }
