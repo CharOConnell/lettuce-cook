@@ -61,6 +61,7 @@
 <script>
 function addBoxSearch(val, leId) {
     let inputval = "input"+leId.slice(6);
+    // add the entry box according to the selected category
     if (val === "recipe_name"){
         $("#"+inputval).html(`<div class="input-field col">
             <input type="text" name="recipe_name" id="recipe_name" placeholder="Recipe name to search for" required class="entry-data"/>
