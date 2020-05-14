@@ -49,7 +49,7 @@ def update_recipe(recipe_id):
         'photo': request.form.get('photo'),
         'difficulty_level': request.form.get('difficulty_level'),
         'cuisine_type': request.form.get('cuisine_type'),
-        'preparation_time': request.form.get('preparation_time'),
+        'prep_time': request.form.get('prep_time'),
         'cooking_time': request.form.get('cooking_time'),
         'serving_size': request.form.get('serving_size'),
         'ingredients': request.form.get('ingredients'),
