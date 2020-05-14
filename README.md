@@ -132,6 +132,7 @@ Bugs found:
 - Could not populate the data into the results section within the search page, so had to create a separate search results page with link back to the search page
 - Interactive buttons to add fields to the html in the search filters section did not pass the database variables to the javascript functions
 - Static javascript scripts were not accessed until replaced with url_for() static link
+- Dropdown would not function with mobiles, so updated version of dropdown was created which works well
 
 ## Deployment
 This project has been deployed using Heroku.
