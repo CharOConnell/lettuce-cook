@@ -1,5 +1,5 @@
 function addFilter() {
-    for (i=2; i<7; i++) {
+    for (i=2; i<8; i++) {
         if (i===2) {
             // add the remove / refresh filter buttons
             $("#addfilterbtn").removeClass("col justify-content-center").addClass("col-5 justify-content-end")
@@ -30,6 +30,7 @@ function addFilter() {
                             <option value="prep">Preparation Time</option>
                             <option value="cook">Cooking Time</option>
                             <option value="serving_size">Serving Size</option>
+                            <option value="ingredients">Ingredients</option>
                         </select>
                     </div>
                 </div>

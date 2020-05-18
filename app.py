@@ -82,8 +82,7 @@ def search():
         for result in recipe_result:
             if result.find(names) > 0:
                 query['recipe_name'] = result
-    else:
-        print(query)
+    ingredient = "ingredients"
     the_results = mongo.db.recipes.find(query)
     return render_template('searchresults.html', results=the_results)
 
