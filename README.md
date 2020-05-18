@@ -32,6 +32,30 @@ There are several pages to show:
 - Search page which allows the user to search the catalogue of recipes and view results
 - New Recipe page - used to add a recipe to the collection
 - Edit Recipe page - used to edit any existing recipes in the collection
+- Schema is as follows:
+
+| Main Database | Collection    | Fields              |
+|---------------|---------------|---------------------|
+| lettuce_cook  | recipes       | _id:                |
+|               |               | recipe_name:        |
+|               |               | recipe_description: |
+|               |               | cuisine_type:       |
+|               |               | photo:              |
+|               |               | difficulty_level:   |
+|               |               | prep_time:          |
+|               |               | cooking_time:       |
+|               |               | serving_size:       |
+|               |               | ingredients:        |
+|               |               | method:             |
+|               | cuisine_style | _id:                |
+|               |               | cuisine_type:       |
+|               | difficulty    | _id:                |
+|               |               | difficulty_level:   |
+|               | preparation   | _id:                |
+|               |               | preparation_time:   |
+|               | cooking       | _id:                |
+|               |               | cooking_time:       |
+|
 
 #### Skeleton
 I created an original skeleton page using Pencil software. The full version of the skeleton can be found [here](static/mockups/wireframe.pdf). 
