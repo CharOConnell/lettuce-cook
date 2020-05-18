@@ -15,6 +15,7 @@ mongo = PyMongo(app)
 def home():
     return render_template('home.html', recipes=mongo.db.recipes.find())
 
+
 @app.route('/add_recipe')
 def add_recipe():
     the_recipes = mongo.db.recipes.find()
@@ -22,13 +23,17 @@ def add_recipe():
     the_cuisine = mongo.db.cuisine_style.find()
     preparation = mongo.db.preparation.find()
     cooking = mongo.db.cooking.find()
-    return render_template('add.html', recipes=the_recipes, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
+    return render_template(
+        'add.html', recipes=the_recipes, difficulty=the_difficulty,
+        cuisine=the_cuisine, prep=preparation, cook=cooking)
+
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('home'))
+
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
@@ -37,13 +42,16 @@ def edit_recipe(recipe_id):
     the_cuisine = mongo.db.cuisine_style.find()
     preparation = mongo.db.preparation.find()
     cooking = mongo.db.cooking.find()
-    return render_template('edit.html', recipe=the_recipe, difficulty=the_difficulty, cuisine=the_cuisine, prep=preparation, cook=cooking)
+    return render_template(
+        'edit.html', recipe=the_recipe, difficulty=the_difficulty,
+        cuisine=the_cuisine, prep=preparation, cook=cooking)
+
 
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
-     {
+                   {
         'recipe_name': request.form.get('recipe_name'),
         'recipe_description': request.form.get('recipe_description'),
         'photo': request.form.get('photo'),
@@ -57,10 +65,12 @@ def update_recipe(recipe_id):
     })
     return redirect(url_for('home'))
 
+
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('home'))
+
 
 @app.route('/search_recipe')
 def search_recipe():
@@ -69,9 +79,12 @@ def search_recipe():
     the_cuisine = mongo.db.cuisine_style.find()
     the_prep = mongo.db.preparation.find()
     the_cooking = mongo.db.cooking.find()
-    return render_template('search.html', recipes=the_recipes, difficulty=the_difficulty, cuisine=the_cuisine, prep=the_prep, cook=the_cooking)
+    return render_template(
+        'search.html', recipes=the_recipes, difficulty=the_difficulty,
+        cuisine=the_cuisine, prep=the_prep, cook=the_cooking)
 
-@app.route("/search" , methods=['POST'])
+
+@app.route("/search", methods=['POST'])
 def search():
     the_query = request.form
     query = the_query.to_dict()
@@ -86,9 +99,11 @@ def search():
         recipe_result = mongo.db.recipes.distinct('recipe_name')
         for result in recipe_result:
             if result.find(nameslower) > -1:
-                idval.extend(mongo.db.recipes.find({'recipe_name':result}).distinct('_id'))
+                idval.extend(mongo.db.recipes.find(
+                    {'recipe_name': result}).distinct('_id'))
             if result.find(namescap) > -1:
-                idval.extend(mongo.db.recipes.find({'recipe_name':result}).distinct('_id'))
+                idval.extend(mongo.db.recipes.find(
+                    {'recipe_name': result}).distinct('_id'))
         testquery['$in'] = idval
         newquery['_id'] = testquery
         the_results = mongo.db.recipes.find(newquery)
@@ -98,9 +113,11 @@ def search():
         ingredient_result = mongo.db.recipes.distinct('ingredients')
         for result in ingredient_result:
             if result.find(ingredientlower) > -1:
-                idval.extend(mongo.db.recipes.find({'ingredients':result}).distinct('_id'))
+                idval.extend(mongo.db.recipes.find(
+                    {'ingredients': result}).distinct('_id'))
             if result.find(ingredientcap) > -1:
-                idval.extend(mongo.db.recipes.find({'ingredients':result}).distinct('_id'))
+                idval.extend(mongo.db.recipes.find(
+                    {'ingredients': result}).distinct('_id'))
         testquery['$in'] = idval
         newquery['_id'] = testquery
         the_results = mongo.db.recipes.find(newquery)
@@ -111,4 +128,4 @@ def search():
 
 if __name__ == '__main__':
     app.run(host=os.getenv('IP', "0.0.0.0"), port=int(
-        os.getenv('PORT', "5000")), debug=True) 
+        os.getenv('PORT', "5000")), debug=True)
