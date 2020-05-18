@@ -75,15 +75,26 @@ def search_recipe():
 def search():
     the_query = request.form
     query=the_query.to_dict()
+    print(query)
     name = 'recipe_name'
+    idval = []
+    testquery = {}
+    newquery = {}
     if name in query.keys():
-        names = query['recipe_name']
+        nameslower = query['recipe_name'].lower()
+        namescap = query['recipe_name'].capitalize()
         recipe_result = mongo.db.recipes.distinct('recipe_name')
         for result in recipe_result:
-            if result.find(names) > 0:
-                query['recipe_name'] = result
-    ingredient = "ingredients"
-    the_results = mongo.db.recipes.find(query)
+            if result.find(nameslower) > -1:
+                idval.extend(mongo.db.recipes.find({'recipe_name':result}).distinct('_id'))
+            if result.find(namescap) > -1:
+                idval.extend(mongo.db.recipes.find({'recipe_name':result}).distinct('_id'))
+        testquery['$in'] = idval
+        newquery['_id'] = testquery
+        print(query)
+        the_results = mongo.db.recipes.find(newquery)
+    else:
+        the_results = mongo.db.recipes.find(query)
     return render_template('searchresults.html', results=the_results)
 
 
