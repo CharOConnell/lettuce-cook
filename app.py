@@ -73,11 +73,21 @@ def search_recipe():
 
 @app.route("/search" , methods=['POST'])
 def search():
-    query = request.form
+    the_query = request.form
+    query=the_query.to_dict()
+    name = 'recipe_name'
+    if name in query.keys():
+        names = query['recipe_name']
+        recipe_result = mongo.db.recipes.distinct('recipe_name')
+        for result in recipe_result:
+            if result.find(names) > 0:
+                query['recipe_name'] = result
+    else:
+        print(query)
     the_results = mongo.db.recipes.find(query)
     return render_template('searchresults.html', results=the_results)
 
 
 if __name__ == '__main__':
     app.run(host=os.getenv('IP', "0.0.0.0"), port=int(
-        os.getenv('PORT', "5000")), debug=False) 
+        os.getenv('PORT', "5000")), debug=True) 
