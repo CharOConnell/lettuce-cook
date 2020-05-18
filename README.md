@@ -55,7 +55,7 @@ There are several pages to show:
 |               |               | preparation_time:   |
 |               | cooking       | _id:                |
 |               |               | cooking_time:       |
-|
+ 
 
 #### Skeleton
 I created an original skeleton page using Pencil software. The full version of the skeleton can be found [here](static/mockups/wireframe.pdf). 
