@@ -74,9 +74,9 @@ def search_recipe():
 @app.route("/search" , methods=['POST'])
 def search():
     the_query = request.form
-    query=the_query.to_dict()
-    print(query)
+    query = the_query.to_dict()
     name = 'recipe_name'
+    ingredient = 'ingredients'
     idval = []
     testquery = {}
     newquery = {}
@@ -91,7 +91,18 @@ def search():
                 idval.extend(mongo.db.recipes.find({'recipe_name':result}).distinct('_id'))
         testquery['$in'] = idval
         newquery['_id'] = testquery
-        print(query)
+        the_results = mongo.db.recipes.find(newquery)
+    elif ingredient in query.keys():
+        ingredientlower = query['ingredients'].lower()
+        ingredientcap = query['ingredients'].capitalize()
+        ingredient_result = mongo.db.recipes.distinct('ingredients')
+        for result in ingredient_result:
+            if result.find(ingredientlower) > -1:
+                idval.extend(mongo.db.recipes.find({'ingredients':result}).distinct('_id'))
+            if result.find(ingredientcap) > -1:
+                idval.extend(mongo.db.recipes.find({'ingredients':result}).distinct('_id'))
+        testquery['$in'] = idval
+        newquery['_id'] = testquery
         the_results = mongo.db.recipes.find(newquery)
     else:
         the_results = mongo.db.recipes.find(query)
