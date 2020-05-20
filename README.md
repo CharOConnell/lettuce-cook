@@ -106,6 +106,7 @@ Heroku is the deployment host.
 ### Features Left to Implement
 - User-names so only the user who added the recipe can edit / remove that particular recipe
 - Ratings for each recipe
+- Upload photo functionality rather than using a URL link 
 
 ## Technologies Used
 - HTML 
@@ -138,9 +139,11 @@ Testing the add functionality:
 - Check you can receive the data from the database after adding
 
 Checking using Validator:
-- HTML validity was checked using the online validator [here](validator.w3.org)
-- Errors were thrown when the Flask references were used within the HTML
-- CSS was checked uing the online validator [here](http://www.css-validator.org/)
+- HTML validity was checked using the online validator [W3C Markup Validator](validator.w3.org)
+    - Errors were thrown when the Flask references were used within the HTML
+- CSS was checked uing the online validator [CSS Jigsaw Validator](http://www.css-validator.org/)
+- JS was checked using the online validator [JSHint](https://jshint.com/)
+    - Errors were thrown with the 'template literal syntax' used
 
 Screen sizes:
 - The website was checked for all the screen sizes available on Chrome Developer Tools

@@ -2,11 +2,11 @@ function addFilter() {
     for (i=2; i<8; i++) {
         if (i===2) {
             // add the remove / refresh filter buttons
-            $("#addfilterbtn").removeClass("col justify-content-center").addClass("col-5 justify-content-end")
+            $("#addfilterbtn").removeClass("col justify-content-center").addClass("col-5 justify-content-end");
             $("#removefilterbtn").html(`<button class="btn" type="button" onclick="removeFilter()"> Remove Filter </button>`)
-                .addClass("d-flex col-2 justify-content-center align-self-center")
+                .addClass("d-flex col-2 justify-content-center align-self-center");
             $("#refreshfilterbtn").html(`<button class="btn" type="button" onclick="refreshFilters()"> Refresh Filters </button>`)
-                .addClass("d-flex col-5 justify-content-start align-self-center")
+                .addClass("d-flex col-5 justify-content-start align-self-center");
         }
         if (i===6) {
             // we've reached our total number of options, so remove the add filter button
@@ -38,7 +38,7 @@ function addFilter() {
                 <!-- INPUT FIELD - Linked to the choice in the dropdown above -->
                 <div class="row input" id="${inputval}"></div>`);
             // break so it produces one extra filter at a time, not 6 at once
-            break
+            break;
         }        
     }
 }

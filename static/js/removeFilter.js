@@ -5,7 +5,7 @@ function removeFilter() {
             if ($("#addfilterbtn").html() === "") {
                 // if the add filter button is not already there, add it back
                 $("#addfilterbtn").html(`<button class="btn" type="button" onclick="addFilter()"> Add Filter </button>`)
-                    .addClass("d-flex col-5 justify-content-end align-self-center")
+                    .addClass("d-flex col-5 justify-content-end align-self-center");
                 $("#removefilterbtn").removeClass("col-6 justify-content-end").addClass("col-2 justify-content-center");
                 $("#refreshfilterbtn").removeClass("col-6").addClass("col-5");
             }
@@ -20,7 +20,7 @@ function removeFilter() {
             // if the latest value has a filter box in it remove it
             $("#"+i).html(``);
             // break so it only deletes one filter at a time, not all at once
-            break
+            break;
         }        
     }
 }

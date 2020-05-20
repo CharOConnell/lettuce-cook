@@ -10,9 +10,9 @@ function buttonUpdate(id) {
     let methodUpdate = "";
 
     // add a line at the delimiter
-    ingredientsChange.forEach(function(item, index) {
+    ingredientsChange.forEach(function(item) {
         ingredientsUpdate += item + "<br>";});
-    methodChange.forEach(function(item, index) {
+    methodChange.forEach(function(item) {
         methodUpdate += item + "<br>";});
 
     // update the html with the new lines
