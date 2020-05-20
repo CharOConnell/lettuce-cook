@@ -13,11 +13,13 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
+    # Display the recipe homepage
     return render_template('home.html', recipes=mongo.db.recipes.find())
 
 
 @app.route('/add_recipe')
 def add_recipe():
+    # Display form to create a recipe
     the_recipes = mongo.db.recipes.find()
     the_difficulty = mongo.db.difficulty.find()
     the_cuisine = mongo.db.cuisine_style.find()
@@ -30,6 +32,7 @@ def add_recipe():
 
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
+    # Insert the form response to the database to add recipe
     recipes = mongo.db.recipes
     recipes.insert_one(request.form.to_dict())
     return redirect(url_for('home'))
@@ -37,6 +40,7 @@ def insert_recipe():
 
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
+    # Display form to edit recipe, including existing entries
     the_recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     the_difficulty = mongo.db.difficulty.find()
     the_cuisine = mongo.db.cuisine_style.find()
@@ -49,6 +53,7 @@ def edit_recipe(recipe_id):
 
 @app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
+    # Update the database with the changed entries
     recipes = mongo.db.recipes
     recipes.update({'_id': ObjectId(recipe_id)},
                    {
@@ -68,12 +73,14 @@ def update_recipe(recipe_id):
 
 @app.route('/delete_recipe/<recipe_id>')
 def delete_recipe(recipe_id):
+    # Delete the selected recipe from the database
     mongo.db.recipes.remove({'_id': ObjectId(recipe_id)})
     return redirect(url_for('home'))
 
 
 @app.route('/search_recipe')
 def search_recipe():
+    # Render the search categories
     the_recipes = mongo.db.recipes.find()
     the_difficulty = mongo.db.difficulty.find()
     the_cuisine = mongo.db.cuisine_style.find()
@@ -86,6 +93,7 @@ def search_recipe():
 
 @app.route("/search", methods=['POST'])
 def search():
+    # Query the database for the searched items
     the_query = request.form
     query = the_query.to_dict()
     name = 'recipe_name'
@@ -94,6 +102,7 @@ def search():
     testquery = {}
     newquery = {}
     if name in query.keys():
+        # Search all instances of the names within the recipe names
         nameslower = query['recipe_name'].lower()
         namescap = query['recipe_name'].capitalize()
         recipe_result = mongo.db.recipes.distinct('recipe_name')
@@ -108,6 +117,7 @@ def search():
         newquery['_id'] = testquery
         the_results = mongo.db.recipes.find(newquery)
     elif ingredient in query.keys():
+        # Search all instances of any of those ingredients in any recipe
         ingredientlower = query['ingredients'].lower()
         ingredientcap = query['ingredients'].capitalize()
         ingredient_result = mongo.db.recipes.distinct('ingredients')
