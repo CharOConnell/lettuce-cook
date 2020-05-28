@@ -161,6 +161,8 @@ Bugs found:
 - Static javascript scripts were not accessed until replaced with url_for() static link
 - Dropdown would not function with mobiles, so updated version of dropdown was created which works well
 
+Testing was done primarily as I went along manually. If the Python or JavaScript were to be more complicated to test, I would have created a stand-alone unit test for each part needing to be tested using Jasmine or another system. 
+
 ## Deployment
 This project has been deployed using Heroku.
 
