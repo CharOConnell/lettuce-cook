@@ -65,6 +65,16 @@ body {
     }
 }
 
+a.title-name {
+    text-decoration: none;
+    color: #fff;
+}
+
+a.title-name:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
 .home-page {
     min-height: 87vh;
 }
